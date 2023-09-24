@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div style="text-align: center;">
 
-## Getting Started
+## WireFrame
 
-First, run the development server:
+![anime-blog](https://github.com/JoeyZ56/next.js-anime-blog/assets/127636815/cc008081-44fc-4e5a-bcfd-5ac76f1a8ba6)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ERD
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<img width="823" alt="Anime-blog-EDR" src="https://github.com/JoeyZ56/next.js-anime-blog/assets/127636815/4b50d56d-4921-4cd1-9f3c-e24877e0210b">
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+# User Stories
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Login/Signup
 
-## Learn More
+As a user, I can create an account and login into the application.
 
-To learn more about Next.js, take a look at the following resources:
+### C.R.U.D. For Posts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+As a User I can create a post, view mine and others posts, update MY posts, and delete a previous post.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### My Account
 
-## Deploy on Vercel
+As a user I can customize my account with a profile picture, update username, and fravorite anime.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Friends
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+As a user I can add people to my friends list and view their posts on my feed.
+
+### Topics
+
+As a user I can join a anime topics page and add posts specific to that topic and only seen in that topic feed.
+
+### Chatroom
+
+As a user I can start a chat room with others to have private conversations only others in the chatroom can see.
+
+# Technology Used
+
+Embla Carousel: https://www.embla-carousel.com/
+
+</div>

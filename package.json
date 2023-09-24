@@ -9,10 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "bcrypt": "^5.1.1",
+    "embla-carousel-autoplay": "^8.0.0-rc14",
+    "embla-carousel-react": "^8.0.0-rc14",
     "eslint": "8.50.0",
     "eslint-config-next": "13.5.2",
+    "mongoose": "^6.11.1",
     "next": "13.5.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "sass": "^1.68.0"
   }
 }

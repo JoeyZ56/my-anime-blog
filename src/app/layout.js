@@ -1,6 +1,7 @@
 import NavBar from "@/components/Navbar/Navbar";
 import "./globals.css";
 import { Oswald } from "next/font/google";
+import { ThemeProvider } from "@/components/ThemeContext/ThemeContext";
 
 const oswald = Oswald({ subsets: ["latin"] });
 
@@ -13,8 +14,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={oswald.className}>
-        <NavBar />
-        {children}
+        <ThemeProvider>
+          <NavBar />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

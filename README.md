@@ -2,13 +2,11 @@
 
 ## WireFrame
 
-![anime-blog](https://github.com/JoeyZ56/my-anime-blog/assets/127636815/33c0f063-bb58-4f1f-8283-70662ceb12b5)
-
+![Alt text](anime-blog.png)
 
 ## ERD
 
-<img width="823" alt="Anime-blog-EDR" src="https://github.com/JoeyZ56/my-anime-blog/assets/127636815/ef757f7c-a24d-4504-9ca9-30cc599d7dad">
-
+![Alt text](Anime-blog-EDR.png)
 
 # User Stories
 

@@ -3,13 +3,13 @@
   justify-content: space-around;
   align-items: center;
 
-  a {
-    color: black;
+  .links {
+    color: white;
     text-decoration: none;
     font-size: 1.2rem;
 
     &:hover {
-      color: rgb(173, 8, 173);
+      color: rgb(196, 15, 6);
       transition: ease-in-out 0.3s;
     }
   }

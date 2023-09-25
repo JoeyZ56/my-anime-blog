@@ -1,0 +1,22 @@
+.mainContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  div {
+    margin-top: 1.5rem;
+  }
+}
+
+.image {
+  width: 500px;
+  height: 350px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

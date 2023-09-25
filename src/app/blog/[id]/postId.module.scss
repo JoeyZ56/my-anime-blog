@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  p {
+    font-size: 25px;
+  }
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+}
+
+.imageContainer {
+  width: 600px;
+  height: 500px;
+  position: relative;
+}
+
+.username {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 1rem;
+  font-size: 30px;
+}
+.content {
+  p {
+    font-size: 25px;
+  }
+}

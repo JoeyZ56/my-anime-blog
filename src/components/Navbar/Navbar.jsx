@@ -5,11 +5,22 @@ export default function NavBar() {
   return (
     <nav className={styles.nav}>
       <h1>Anime Blog</h1>
-      <Link href="/">Dashboard</Link>
-      <Link href="/topics">Topics</Link>
-      {/* <Link href="/posts/create">Create Post</Link> */}
-      <Link href="/signup">Signup</Link>
-      <Link href="/login">Login</Link>
+
+      <Link href="/" className={styles.links}>
+        Dashboard
+      </Link>
+      <Link href="/topics" className={styles.links}>
+        Topics
+      </Link>
+      <Link href="/createpost" className={styles.links}>
+        Create Post
+      </Link>
+      <Link href="/signup" className={styles.links}>
+        Signup
+      </Link>
+      <Link href="/login" className={styles.links}>
+        Login
+      </Link>
     </nav>
   );
 }

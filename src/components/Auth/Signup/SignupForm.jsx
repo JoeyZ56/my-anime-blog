@@ -15,7 +15,7 @@ export default function SignupForm() {
     <main className={styles.container}>
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.title}>
-          <h1>Signup and Start Posting!</h1>
+          <h1>Join the Community Today</h1>
         </div>
         <label>Username</label>
         <input

@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./postId.module.scss";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 
 async function getData(id) {
   const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
@@ -32,13 +33,15 @@ const BlogPost = async ({ params }) => {
           <h1 className={styles.title}>{data.title}</h1>
           <p className={styles.desc}>{data.desc}</p>
           <div className={styles.author}>
-            <Image
-              src={data.img}
-              alt=""
-              width={40}
-              height={40}
-              className={styles.avatar}
-            />
+            <Link href={`/blog${params.id}`} className={styles.link}>
+              <Image
+                src={data.img}
+                alt=""
+                width={40}
+                height={40}
+                className={styles.avatar}
+              />
+            </Link>
             <span className={styles.username}>{data.username}</span>
           </div>
         </div>

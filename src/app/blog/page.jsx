@@ -19,6 +19,9 @@ const Blog = async () => {
   const data = await getData();
   return (
     <div className={styles.mainContainer}>
+      <div>
+        <h1>Community Posts</h1>
+      </div>
       {data.map((item) => (
         <Link
           href={`/blog/${item._id}`}

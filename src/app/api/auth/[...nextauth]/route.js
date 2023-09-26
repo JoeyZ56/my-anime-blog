@@ -5,14 +5,16 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcrypt";
 
 const handler = NextAuth({
-  // Configure one or more authentication providers
   providers: [
     CredentialsProvider({
       id: "credentials",
       name: "credentials",
 
       async authorize(credentials) {
-        //checks if user exists
+        // Log the MongoDB URI to ensure it's correct
+        console.log("MongoDB URI:", process.env.MONGO_URI);
+
+        // Establish MongoDB connection
         await connect();
 
         try {
@@ -34,7 +36,11 @@ const handler = NextAuth({
             throw new Error("User not found!");
           }
         } catch (error) {
-          throw new Error(error);
+          // Log the error for debugging
+          console.error("Authorization Error:", error);
+
+          // Rethrow the error
+          throw error;
         }
       },
     }),
@@ -43,7 +49,5 @@ const handler = NextAuth({
     error: "/login",
   },
 });
-
-//when passing session is going to be a GEt, when passig user info its going to be a POST
 
 export { handler as GET, handler as POST };

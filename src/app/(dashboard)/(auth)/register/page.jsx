@@ -7,14 +7,14 @@ import { useRouter } from "next/navigation";
 const Register = () => {
   const [error, setError] = useState(false);
 
-  const router = useRouter;
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     //form elements instead of state
     const name = e.target[0].value;
-    const email = e.target[0].value;
-    const password = e.target[0].value;
+    const email = e.target[1].value;
+    const password = e.target[2].value;
 
     try {
       const res = await fetch("/api/auth/register", {

@@ -2,6 +2,7 @@ import NavBar from "@/components/Navbar/Navbar";
 import "./globals.css";
 import { Oswald } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeContext/ThemeContext";
+import AuthProvider from "@/components/AuthProvider/AuthProvider";
 
 const oswald = Oswald({ subsets: ["latin"] });
 
@@ -15,8 +16,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={oswald.className}>
         <ThemeProvider>
-          <NavBar />
-          {children}
+          <AuthProvider>
+            <NavBar />
+            {children}
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>

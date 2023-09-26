@@ -38,4 +38,6 @@ As a user I can start a chat room with others to have private conversations only
 
 Embla Carousel: https://www.embla-carousel.com/
 
+Next-Auth: https://next-auth.js.org/
+
 </div>

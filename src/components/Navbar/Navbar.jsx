@@ -15,8 +15,8 @@ export default function NavBar() {
       <Link href="/createpost" className={styles.links}>
         Create Post
       </Link>
-      <Link href="/signup" className={styles.links}>
-        Signup
+      <Link href="/register" className={styles.links}>
+        Register
       </Link>
       <Link href="/login" className={styles.links}>
         Login

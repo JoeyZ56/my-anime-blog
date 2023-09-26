@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./dashboard.module.scss";
+import styles from "./blog.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 

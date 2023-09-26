@@ -1,10 +1,15 @@
 .container {
-  background-image: url("https://media.giphy.com/media/ramBbsu5kGc8AJHd1h/giphy.gif");
+  background-image: url("https://media3.giphy.com/media/2xu5zpSV3oqKcCSZ49/giphy.gif?cid=ecf05e47vzc4h1vryg62juoirk3hocosl8fpfz2m07s1yac2&ep=v1_gifs_search&rid=giphy.gif&ct=g");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
+}
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .form {
   display: flex;
@@ -25,33 +30,36 @@
     width: 15rem;
     height: 1.2rem;
   }
+}
 
-  label {
-    font-size: 1.2rem;
+.input1 {
+  margin-top: 2rem;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 80px;
+  height: 30px;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(196, 15, 6);
   }
 }
 
-.title {
+.link {
   display: flex;
-  align-items: center;
   justify-content: center;
-}
-
-.submit {
-  display: flex;
   align-items: center;
-  justify-content: center;
 
-  padding-top: 0.5rem;
-  padding-bottom: 1rem;
+  margin-top: 2rem;
+  color: black;
 
-  button {
-    cursor: pointer;
-    width: 100px;
-    height: 30px;
-
-    &:hover {
-      background-color: rgb(211, 8, 211);
-    }
+  &:hover {
+    color: rgb(196, 15, 6);
   }
 }

@@ -16,6 +16,7 @@ async function getData(id) {
   return res.json();
 }
 
+//use generate  meta data for dynamic pages
 export async function generateMetadata({ params }) {
   const post = await getData(params.id);
   return {

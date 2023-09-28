@@ -1,0 +1,27 @@
+.container {
+  background-image: url("https://media.tenor.com/7bBINkQ326MAAAAd/animation-art.gif");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+}
+
+.posts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.imageContainer {
+  margin-top: 1.5rem;
+}
+
+.delete {
+  &:hover {
+    background-color: rgb(196, 15, 6);
+    transition: ease-in-out 0.3s;
+    cursor: pointer;
+  }
+}

@@ -48,6 +48,7 @@
 
   &:hover {
     background-color: rgb(196, 15, 6);
+    transition: ease-in-out 0.3s;
   }
 }
 
@@ -57,9 +58,10 @@
   align-items: center;
 
   margin-top: 2rem;
-  color: black;
+  color: white;
 
   &:hover {
     color: rgb(196, 15, 6);
+    transition: ease-in-out 0.3s;
   }
 }

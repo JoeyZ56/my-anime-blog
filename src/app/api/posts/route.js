@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import connect from "../../../../lib/database";
+import connect from "@/lib/database";
 import Post from "@/models/Post";
 
 //http://localhost:3000/api/posts

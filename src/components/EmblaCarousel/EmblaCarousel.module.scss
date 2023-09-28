@@ -3,12 +3,27 @@
 }
 .container {
   display: flex;
+
+  @media screen and (max-width: 800px) {
+    width: 100vw;
+    height: 100vh;
+  }
+  @media screen and (max-width: 390px) {
+    width: 25vw;
+    height: 25vh;
+  }
 }
-.gifs {
+.imgs {
   flex: 0 0 100%;
   min-width: 0;
 
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 390px) {
+    width: 25vw;
+    height: 30vh;
+    background-size: cover;
+  }
 }

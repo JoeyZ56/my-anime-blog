@@ -1,0 +1,59 @@
+.container {
+  background-image: url("https://media.tenor.com/4vUWz1Z30IAAAAAd/future.gif");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+}
+.newPost {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+
+  filter: drop-shadow(0px 2px 2px black);
+
+  input {
+    width: 250px;
+    height: 25px;
+  }
+
+  textarea {
+    width: 400px;
+    height: 300px;
+  }
+}
+.input::placeholder {
+  color: #000;
+  font-size: 1rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-align: center;
+}
+.content::placeholder {
+  color: #000;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+
+  font-family: "Roboto", sans-serif;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 80px;
+  height: 30px;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(196, 15, 6);
+    transition: ease-in-out 0.3s;
+  }
+}

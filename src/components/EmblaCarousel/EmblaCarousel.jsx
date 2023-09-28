@@ -10,19 +10,19 @@ export const EmblaCarousel = () => {
   return (
     <div className={styles.embla} ref={emblaRef}>
       <div className={styles.container}>
-        <div className={styles.gifs}>
+        <div className={styles.imgs}>
           <img src="https://media.comicbook.com/2019/06/black-clover-1175515.jpeg?auto=webp" />
         </div>
-        <div className={styles.gifs}>
+        <div className={styles.imgs}>
           <img src="https://wallpaperaccess.com/full/758946.jpg" />
         </div>
-        <div className={styles.gifs}>
+        <div className={styles.imgs}>
           <img src="https://www.denofgeek.com/wp-content/uploads/2021/01/Demon-Slayer-Kimetsu-No-Yaiba-Season-1-Tanjiro-Attack-Collage.jpg?fit=1200%2C675" />
         </div>
-        <div className={styles.gifs}>
+        <div className={styles.imgs}>
           <img src="https://picfiles.alphacoders.com/460/460297.jpg" />
         </div>
-        <div className={styles.gifs}>
+        <div className={styles.imgs}>
           <img src="https://thecinemaholic.com/wp-content/uploads/2020/09/the-rising-of-the-shield-hero-8950-1.jpg?resize=740" />
         </div>
       </div>

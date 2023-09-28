@@ -1,12 +1,17 @@
 "use client";
 import React from "react";
-import styles from "./CreatePost.module.scss";
+import styles from "./UserPosts.module.scss";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import useSWR from "swr";
 
-export default function CreatePost() {
+// export const metadata = {
+//   title: "Topics",
+//   description: "Search anime topics to post about",
+// };
+
+export default function UserPosts() {
   const session = useSession();
   const router = useRouter();
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -56,21 +61,21 @@ export default function CreatePost() {
 
   return (
     <div className={styles.container}>
-      <form className={styles.newPost} onSubmit={handleSubmit}>
+      {/* <form className={styles.new} onSubmit={handleSubmit}>
         <h1>Create Post</h1>
         <input type="text" placeholder="Title" className={styles.input} />
         <input type="text" placeholder="Desc" className={styles.input} />
         <input type="text" placeholder="Image" className={styles.input} />
         <textarea
-          placeholder="What unhinged anime thoughts do you have today?"
-          className={styles.content}
+          placeholder="Tell your story..."
+          className={styles.textArea}
           cols={30}
           rows={10}
         ></textarea>
         <button className={styles.button}>Send</button>
-      </form>
+      </form> */}
 
-      {/* New user posts
+      {/* New user posts */}
       <div className={styles.posts}>
         {data?.map((post) => (
           <div className={styles.post} key={post._id}>
@@ -78,15 +83,15 @@ export default function CreatePost() {
               <Image src={post.img} alt="" width={300} height={200} />
             </div>
             <h2 className={styles.postTitle}>{post.title}</h2>
-            <span
+            <button
               className={styles.delete}
               onClick={() => handleDelete(post._id)}
             >
               X
-            </span>
+            </button>
           </div>
         ))}
-      </div> */}
+      </div>
     </div>
   );
 }

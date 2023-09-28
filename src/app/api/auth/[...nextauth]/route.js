@@ -1,20 +1,16 @@
-import User from "@/models/User";
-import { connect } from "mongoose";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import User from "@/models/User";
+import connect from "@/lib/database";
 import bcrypt from "bcrypt";
 
 const handler = NextAuth({
   providers: [
     CredentialsProvider({
       id: "credentials",
-      name: "credentials",
-
+      name: "Credentials",
       async authorize(credentials) {
-        // Log the MongoDB URI to ensure it's correct
-        console.log("MongoDB URI:", process.env.MONGO_URI);
-
-        // Establish MongoDB connection
+        //Check if the user exists.
         await connect();
 
         try {
@@ -27,25 +23,22 @@ const handler = NextAuth({
               credentials.password,
               user.password
             );
+
             if (isPasswordCorrect) {
               return user;
             } else {
-              throw new Error("Password or email is incorrect!");
+              throw new Error("Wrong Credentials!");
             }
           } else {
             throw new Error("User not found!");
           }
-        } catch (error) {
-          // Log the error for debugging
-          console.error("Authorization Error:", error);
-
-          // Rethrow the error
-          throw error;
+        } catch (err) {
+          throw new Error(err);
         }
       },
     }),
   ],
-  page: {
+  pages: {
     error: "/login",
   },
 });

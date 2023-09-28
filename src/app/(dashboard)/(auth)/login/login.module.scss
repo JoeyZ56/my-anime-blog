@@ -1,0 +1,68 @@
+.container {
+  background-image: url("https://media.tenor.com/4_7eHoNWopMAAAAd/pixelated-gif.gif");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+}
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  margin-left: 35%;
+  margin-right: 35%;
+
+  filter: drop-shadow(0px 2px 2px black);
+
+  background-color: whitesmoke opacity($color: #000000);
+
+  input {
+    margin-bottom: 1rem;
+
+    width: 15rem;
+    height: 1.2rem;
+  }
+}
+
+.input1 {
+  margin-top: 2rem;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 80px;
+  height: 30px;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(196, 15, 6);
+    transition: ease-in-out 0.3s;
+  }
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 2rem;
+  color: white;
+  font-size: 1.2rem;
+
+  &:hover {
+    color: rgb(196, 15, 6);
+    transition: ease-in-out 0.3s;
+  }
+}

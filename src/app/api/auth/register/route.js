@@ -1,5 +1,5 @@
 import User from "@/models/User";
-import connect from "../../../../../lib/database";
+import connect from "@/lib/database";
 import { NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 

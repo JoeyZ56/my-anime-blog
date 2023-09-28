@@ -1,26 +1,43 @@
+"use client";
 import Link from "next/link";
 import styles from "./NavBar.module.scss";
+import { useSession } from "next-auth/react";
+
+import DarkModeToggle from "../ThemeToggle/ThemeToggle";
+import Logout from "../Logout/Logout";
 
 export default function NavBar() {
+  const session = useSession();
   return (
-    <nav className={styles.nav}>
-      <h1>Anime Blog</h1>
-
+    <div className={styles.nav}>
+      <div>
+        <h1>Anime Blog</h1>
+      </div>
+      <DarkModeToggle />
       <Link href="/" className={styles.links}>
         Dashboard
       </Link>
-      <Link href="/topics" className={styles.links}>
-        Topics
-      </Link>
-      <Link href="/createpost" className={styles.links}>
-        Create Post
-      </Link>
-      <Link href="/register" className={styles.links}>
-        Register
-      </Link>
-      <Link href="/login" className={styles.links}>
-        Login
-      </Link>
-    </nav>
+      {session.status === "authenticated" && (
+        <Link href="/userposts" className={styles.links}>
+          My Posts
+        </Link>
+      )}
+      {session.status === "authenticated" && (
+        <Link href="/createpost" className={styles.links}>
+          Create Post
+        </Link>
+      )}
+      {session.status != "authenticated" && (
+        <Link href="/register" className={styles.links}>
+          Register
+        </Link>
+      )}
+      {session.status != "authenticated" && (
+        <Link href="/login" className={styles.links}>
+          Login
+        </Link>
+      )}
+      <Logout />
+    </div>
   );
 }

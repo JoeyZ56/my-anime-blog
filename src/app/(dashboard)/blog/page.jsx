@@ -17,12 +17,17 @@ async function getData() {
 
 const Blog = async () => {
   const data = await getData();
+
+  const sortedData = data.sort(
+    (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+  );
+
   return (
     <div className={styles.mainContainer}>
       <div>
         <h1>Community Posts</h1>
       </div>
-      {data.map((item) => (
+      {sortedData.map((item) => (
         <Link
           href={`/blog/${item._id}`}
           className={styles.container}

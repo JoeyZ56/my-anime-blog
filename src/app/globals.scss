@@ -18,19 +18,35 @@ a {
 
   #links {
     color: #111;
+
+    &:hover {
+      color: rgb(196, 15, 6);
+      transition: ease-in-out 0.3s;
+    }
   }
 
   #button {
     background-color: #111;
     color: white;
+
+    &:hover {
+      background-color: rgb(196, 15, 6);
+      color: #111;
+      transition: ease-in-out 0.3s;
+    }
   }
 }
 
 .dark {
   background-color: #111;
-  color: #bbb;
+  color: #fff;
 
   #links {
-    color: #bbb;
+    color: #fff;
+
+    &:hover {
+      color: rgb(196, 15, 6);
+      transition: ease-in-out 0.3s;
+    }
   }
 }

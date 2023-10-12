@@ -18,20 +18,22 @@ export default function NavBar() {
         Dashboard
       </Link>
       {session.status === "authenticated" && (
-        <Link href="/userposts" className={styles.links} id="links">
-          My Posts
-        </Link>
-      )}
-      {session.status === "authenticated" && (
         <Link href="/createpost" className={styles.links} id="links">
           Create Post
         </Link>
       )}
+      {session.status === "authenticated" && (
+        <Link href="/userposts" className={styles.links} id="links">
+          My Posts
+        </Link>
+      )}
+
       {session.status != "authenticated" && (
         <Link href="/register" className={styles.links} id="links">
           Register
         </Link>
       )}
+
       {session.status != "authenticated" && (
         <Link href="/login" className={styles.links} id="links">
           Login

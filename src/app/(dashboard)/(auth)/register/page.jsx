@@ -15,6 +15,7 @@ const Register = () => {
     const name = e.target[0].value;
     const email = e.target[1].value;
     const password = e.target[2].value;
+    const profileImage = e.target[3].value;
 
     try {
       const res = await fetch("/api/auth/register", {
@@ -26,6 +27,7 @@ const Register = () => {
           name,
           email,
           password,
+          profileImage,
         }),
       });
       res.status === 201 &&
@@ -58,6 +60,11 @@ const Register = () => {
           placeholder="Password"
           className={styles.input3}
           required
+        />
+        <input
+          type="text"
+          placeholder="Profile Image URL"
+          className={styles.input4}
         />
         <button className={styles.button}>Register</button>
       </form>

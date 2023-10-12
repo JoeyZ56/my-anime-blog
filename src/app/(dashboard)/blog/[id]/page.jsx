@@ -36,8 +36,8 @@ const BlogPost = async ({ params }) => {
           <div className={styles.author}>
             <Link href={`/blog${params.id}`} className={styles.link}>
               <Image
-                src={data.img}
-                alt=""
+                src={data.profileImage}
+                alt="profile image"
                 width={40}
                 height={40}
                 className={styles.avatar}

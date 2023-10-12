@@ -25,6 +25,15 @@ export const EmblaCarousel = () => {
         <div className={styles.imgs}>
           <img src="https://thecinemaholic.com/wp-content/uploads/2020/09/the-rising-of-the-shield-hero-8950-1.jpg?resize=740" />
         </div>
+        <div className={styles.imgs}>
+          <img src="https://vignette.wikia.nocookie.net/vsbattles/images/b/b9/Ac.jpg/revision/latest?cb=20160510013432" />
+        </div>
+        <div className={styles.imgs}>
+          <img src="https://wallpapercave.com/wp/wp12302094.jpg" />
+        </div>
+        <div className={styles.imgs}>
+          <img src="https://ostani.me/wp-content/uploads/2019/07/Date-A-Live.jpg" />
+        </div>
       </div>
     </div>
   );

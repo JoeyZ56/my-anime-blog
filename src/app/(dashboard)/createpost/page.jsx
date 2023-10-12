@@ -38,6 +38,7 @@ export default function CreatePost() {
         }),
       });
       mutate();
+      router.push("/");
     } catch (error) {
       console.log(error);
     }

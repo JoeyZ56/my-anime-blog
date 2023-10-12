@@ -5,10 +5,11 @@ import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import useSWR from "swr";
+import Link from "next/link";
 
 // export const metadata = {
-//   title: "Topics",
-//   description: "Search anime topics to post about",
+//   title: "User Posts",
+//   description: "User Posts",
 // };
 
 export default function UserPosts() {
@@ -77,20 +78,24 @@ export default function UserPosts() {
 
       {/* New user posts */}
       <div className={styles.posts}>
-        {data?.map((post) => (
-          <div className={styles.post} key={post._id}>
-            <div className={styles.imageContainer}>
-              <Image src={post.img} alt="" width={300} height={200} />
+        {data
+          ?.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+          .map((post) => (
+            <div className={styles.post} key={post._id}>
+              <div className={styles.imageContainer}>
+                <Link href={`/blog/${post._id}`}>
+                  <Image src={post.img} alt="" width={300} height={200} />
+                </Link>
+              </div>
+              <h2 className={styles.postTitle}>{post.title}</h2>
+              <button
+                className={styles.delete}
+                onClick={() => handleDelete(post._id)}
+              >
+                X
+              </button>
             </div>
-            <h2 className={styles.postTitle}>{post.title}</h2>
-            <button
-              className={styles.delete}
-              onClick={() => handleDelete(post._id)}
-            >
-              X
-            </button>
-          </div>
-        ))}
+          ))}
       </div>
     </div>
   );

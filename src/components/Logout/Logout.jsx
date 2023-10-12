@@ -9,7 +9,7 @@ const Logout = () => {
     <div>
       {" "}
       {session.status === "authenticated" && (
-        <button className={styles.button} onClick={signOut}>
+        <button className={styles.button} id="button" onClick={signOut}>
           Logout
         </button>
       )}

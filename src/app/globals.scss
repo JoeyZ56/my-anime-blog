@@ -1,0 +1,36 @@
+body {
+  background-color: black;
+  // color: white;
+}
+
+a {
+  // color: white;
+  text-decoration: none;
+}
+
+.theme {
+  transition: 1s all ease;
+}
+
+.light {
+  background-color: white;
+  color: #111;
+
+  #links {
+    color: #111;
+  }
+
+  #button {
+    background-color: #111;
+    color: white;
+  }
+}
+
+.dark {
+  background-color: #111;
+  color: #bbb;
+
+  #links {
+    color: #bbb;
+  }
+}

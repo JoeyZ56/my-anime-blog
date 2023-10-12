@@ -1,5 +1,5 @@
 import NavBar from "@/components/Navbar/Navbar";
-import "./globals.css";
+import "./globals.scss";
 import { Oswald } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeContext/ThemeContext";
 import AuthProvider from "@/components/AuthProvider/AuthProvider";

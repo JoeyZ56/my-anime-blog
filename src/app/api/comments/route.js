@@ -1,31 +1,36 @@
-import Comments from "@/models/comments";
+// pages/api/comments/index.js
+import Comments from "../../../models/Comment";
 import connect from "@/lib/database";
-import { NextResponse } from "next/server";
 
-export const GET = async (request) => {
-  const url = new URL(request.url);
-  const username = url.searchParams.get("username");
-  try {
-    await connect();
-
-    const comments = await comments.find(username && { username });
-    return new NextResponse(JSON.stringify(comments), { status: 200 });
-  } catch (error) {
-    return new NextResponse("Can not find comments by username", {
-      status: 500,
-    });
+export default async function handler(req, res) {
+  if (req.method === "GET") {
+    await getComments(req, res);
+  } else if (req.method === "POST") {
+    await postComment(req, res);
   }
-};
+}
 
-export const POST = async (request) => {
-  const body = await request.json();
-  const newComment = new Comments(body);
-
+export async function getComments(req, res) {
+  await connect();
   try {
-    await connect();
-    await newComment.save();
-    return new NextResponse("Comment has been created", { status: 201 });
+    const comments = await Comments.find({ post: req.query.id })
+      .populate("user")
+      .sort({ createdAt: -1 });
+
+    res
+      .status(200)
+      .json({ comments, message: "Comments displayed successfully" });
   } catch (error) {
-    return new NextResponse("Database Error", { status: 500 });
+    res.status(500).json({ error: "Error fetching comments" });
   }
-};
+}
+
+export async function postComment(req, res) {
+  await connect();
+  try {
+    const comment = await Comments.create(req.body);
+    res.status(201).json({ comment, message: "Comment created successfully" });
+  } catch (error) {
+    res.status(500).json({ error: "Error creating comment" });
+  }
+}

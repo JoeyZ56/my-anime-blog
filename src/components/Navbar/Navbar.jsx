@@ -14,26 +14,26 @@ export default function NavBar() {
         <h1>Anime Blog</h1>
       </div>
       <DarkModeToggle />
-      <Link href="/" className={styles.links}>
+      <Link href="/" className={styles.links} id="links">
         Dashboard
       </Link>
       {session.status === "authenticated" && (
-        <Link href="/userposts" className={styles.links}>
+        <Link href="/userposts" className={styles.links} id="links">
           My Posts
         </Link>
       )}
       {session.status === "authenticated" && (
-        <Link href="/createpost" className={styles.links}>
+        <Link href="/createpost" className={styles.links} id="links">
           Create Post
         </Link>
       )}
       {session.status != "authenticated" && (
-        <Link href="/register" className={styles.links}>
+        <Link href="/register" className={styles.links} id="links">
           Register
         </Link>
       )}
       {session.status != "authenticated" && (
-        <Link href="/login" className={styles.links}>
+        <Link href="/login" className={styles.links} id="links">
           Login
         </Link>
       )}

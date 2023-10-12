@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 
 import DarkModeToggle from "../ThemeToggle/ThemeToggle";
 import Logout from "../Logout/Logout";
+import SocialMedia from "../SocialMedia/SocialMedia";
 
 export default function NavBar() {
   const session = useSession();
@@ -19,6 +20,7 @@ export default function NavBar() {
       >
         <h1>Anime Blog</h1>
       </motion.div>
+      <SocialMedia />
       <DarkModeToggle />
 
       <Link href="/" className={styles.links} id="links">

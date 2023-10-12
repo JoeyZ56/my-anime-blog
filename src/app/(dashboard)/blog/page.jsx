@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import styles from "./blog.module.scss";
 import Link from "next/link";
 import Image from "next/image";
@@ -16,8 +17,21 @@ async function getData() {
   return res.json();
 }
 
-const Blog = async () => {
-  const data = await getData();
+const Blog = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await getData();
+        setData(result);
+      } catch (error) {
+        console.error("Error fetching data:", error.message);
+      }
+    };
+
+    fetchData();
+  }, []); // Empty dependency array means this effect runs once, similar to componentDidMount
 
   const sortedData = data.sort(
     (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
@@ -28,32 +42,34 @@ const Blog = async () => {
       <div>
         <h1>Community Posts</h1>
       </div>
+
       {sortedData.map((item) => (
-        <Link
-          href={`/blog/${item._id}`}
-          className={styles.container}
-          key={item.id}
-          id="links"
-        >
-          <motion.div
-            whileInView={{ opacity: 1 }}
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.5, type: "tween" }}
-            className={styles.imageContainer}
+        <div className={styles.content} key={item._id}>
+          <h1 className={styles.title}>{item.title}</h1>
+          <p className={styles.desc}>{item.desc}</p>
+          <Link
+            href={`/blog/${item._id}`}
+            className={styles.container}
+            key={item._id}
+            id="links"
           >
-            <Image
-              src={item.img}
-              alt=""
-              width={400}
-              height={250}
-              className={styles.image}
-            />
-          </motion.div>
-          <div className={styles.content}>
-            <h1 className={styles.title}>{item.title}</h1>
-            <p className={styles.desc}>{item.desc}</p>
-          </div>
-        </Link>
+            <motion.div
+              whileInView={{ opacity: 1 }}
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.5, type: "tween" }}
+              className={styles.imageContainer}
+            >
+              <Image
+                src={item.img}
+                alt=""
+                width={400}
+                height={250}
+                className={styles.image}
+                id="image"
+              />
+            </motion.div>
+          </Link>
+        </div>
       ))}
     </div>
   );

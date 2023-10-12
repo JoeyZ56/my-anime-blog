@@ -22,6 +22,8 @@
     "next-auth": "^4.23.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icon": "^1.0.0",
+    "react-icons": "^4.11.0",
     "react-query": "^3.39.3",
     "sass": "^1.68.0",
     "swr": "^2.2.4"

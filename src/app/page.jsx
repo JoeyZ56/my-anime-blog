@@ -12,6 +12,7 @@ export default function Home() {
       <div>
         <Blog />
       </div>
+      <div></div>
     </>
   );
 }

@@ -40,4 +40,6 @@ Embla Carousel: https://www.embla-carousel.com/
 
 Next-Auth: https://next-auth.js.org/
 
+Framer-Motion: https://www.framer.com/motion/
+
 </div>

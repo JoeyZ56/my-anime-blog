@@ -31,3 +31,21 @@ export const DELETE = async (request, { params }) => {
     return new NextResponse("Database Error", { status: 500 });
   }
 };
+
+export const PUT = async (request, { params }) => {
+  const { id } = params;
+
+  try {
+    console.log("Updating post with ID:", id);
+    await connect();
+
+    const post = await Post.findByIdAndUpdate(id, request.body, {
+      new: true,
+    });
+
+    return new NextResponse(JSON.stringify(post), { status: 200 });
+  } catch (err) {
+    console.error("Error updating post:", err);
+    return new NextResponse(`Database Error: ${err.message}`, { status: 500 });
+  }
+};

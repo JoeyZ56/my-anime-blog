@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import styles from "./CreatePost.module.scss";
-import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import useSWR from "swr";
@@ -44,17 +43,6 @@ export default function CreatePost() {
     }
   };
 
-  const handleDelete = async (id) => {
-    try {
-      await fetch(`/api/posts/${id}`, {
-        method: "DELETE",
-      });
-      mutate();
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return (
     <div className={styles.container}>
       <form className={styles.newPost} onSubmit={handleSubmit}>
@@ -70,24 +58,6 @@ export default function CreatePost() {
         ></textarea>
         <button className={styles.button}>Send</button>
       </form>
-
-      {/* New user posts
-      <div className={styles.posts}>
-        {data?.map((post) => (
-          <div className={styles.post} key={post._id}>
-            <div className={styles.imageContainer}>
-              <Image src={post.img} alt="" width={300} height={200} />
-            </div>
-            <h2 className={styles.postTitle}>{post.title}</h2>
-            <span
-              className={styles.delete}
-              onClick={() => handleDelete(post._id)}
-            >
-              X
-            </span>
-          </div>
-        ))}
-      </div> */}
     </div>
   );
 }

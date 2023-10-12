@@ -6,6 +6,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import useSWR from "swr";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 // export const metadata = {
 //   title: "User Posts",
@@ -24,31 +25,6 @@ export default function UserPosts() {
 
   console.log(data);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const title = e.target[0].value;
-    const desc = e.target[1].value;
-    const img = e.target[2].value;
-    const content = e.target[3].value;
-
-    try {
-      await fetch("/api/posts", {
-        method: "POST",
-        body: JSON.stringify({
-          title,
-          desc,
-          img,
-          content,
-          username: session.data.user.name,
-        }),
-      });
-      mutate();
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   const handleDelete = async (id) => {
     try {
       await fetch(`/api/posts/${id}`, {
@@ -60,40 +36,52 @@ export default function UserPosts() {
     }
   };
 
+  const handleUpdate = async (id) => {
+    console.log("Updating post with ID:", id); // Log the id
+    try {
+      await fetch(`/api/posts/${id}`, {
+        method: "PUT",
+      });
+      mutate();
+      router.push(`/updatepost/${id}`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className={styles.container}>
-      {/* <form className={styles.new} onSubmit={handleSubmit}>
-        <h1>Create Post</h1>
-        <input type="text" placeholder="Title" className={styles.input} />
-        <input type="text" placeholder="Desc" className={styles.input} />
-        <input type="text" placeholder="Image" className={styles.input} />
-        <textarea
-          placeholder="Tell your story..."
-          className={styles.textArea}
-          cols={30}
-          rows={10}
-        ></textarea>
-        <button className={styles.button}>Send</button>
-      </form> */}
-
-      {/* New user posts */}
       <div className={styles.posts}>
         {data
           ?.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
           .map((post) => (
             <div className={styles.post} key={post._id}>
-              <div className={styles.imageContainer}>
+              <h2 className={styles.postTitle}>{post.title}</h2>
+              <motion.div
+                whileInView={{ opacity: 1 }}
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.5, type: "tween" }}
+                className={styles.imageContainer}
+              >
                 <Link href={`/blog/${post._id}`}>
                   <Image src={post.img} alt="" width={300} height={200} />
                 </Link>
+              </motion.div>
+
+              <div className={styles.buttons}>
+                <button
+                  className={styles.delete}
+                  onClick={() => handleDelete(post._id)}
+                >
+                  X
+                </button>
+                <button
+                  className={styles.update}
+                  onClick={() => handleUpdate(post._id)}
+                >
+                  Update
+                </button>
               </div>
-              <h2 className={styles.postTitle}>{post.title}</h2>
-              <button
-                className={styles.delete}
-                onClick={() => handleDelete(post._id)}
-              >
-                X
-              </button>
             </div>
           ))}
       </div>

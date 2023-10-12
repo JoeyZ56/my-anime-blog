@@ -2,6 +2,7 @@
 import Link from "next/link";
 import styles from "./NavBar.module.scss";
 import { useSession } from "next-auth/react";
+import { motion } from "framer-motion";
 
 import DarkModeToggle from "../ThemeToggle/ThemeToggle";
 import Logout from "../Logout/Logout";
@@ -10,10 +11,16 @@ export default function NavBar() {
   const session = useSession();
   return (
     <div className={styles.nav}>
-      <div>
+      <motion.div
+        whileHover={{ scale: 1.2 }}
+        whileTap={{ scale: 1.1 }}
+        drag="x"
+        dragConstraints={{ left: -100, right: 100 }}
+      >
         <h1>Anime Blog</h1>
-      </div>
+      </motion.div>
       <DarkModeToggle />
+
       <Link href="/" className={styles.links} id="links">
         Dashboard
       </Link>
@@ -39,6 +46,7 @@ export default function NavBar() {
           Login
         </Link>
       )}
+
       <Logout />
     </div>
   );

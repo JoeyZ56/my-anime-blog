@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import styles from "./NavBar.module.scss";
+import styles from "./Navbar.module.scss";
 import { useSession } from "next-auth/react";
 import { motion } from "framer-motion";
 

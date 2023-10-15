@@ -1,6 +1,6 @@
 .nav {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
 
   .links {
@@ -13,4 +13,10 @@
       transition: ease-in-out 0.3s;
     }
   }
+}
+
+.logo {
+  background: -webkit-linear-gradient(#fff, rgb(196, 15, 6));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

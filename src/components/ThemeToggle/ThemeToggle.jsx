@@ -16,6 +16,7 @@ const DarkModeToggle = () => {
         whileHover={{ scale: 1.1 }}
         transition={{ duration: 0.5, type: "tween" }}
         className={styles.ball}
+        id="theme__ball"
         style={mode === "light" ? { left: "2px" } : { right: "2px" }}
       ></motion.div>
     </div>

@@ -14,15 +14,23 @@ a {
 
 .light {
   background-color: white;
-  color: #111;
+  color: #fff;
+
+  #nav {
+    background: linear-gradient(45deg, #fff, rgb(48, 41, 236));
+  }
 
   #links {
     color: #111;
 
     &:hover {
-      color: rgb(196, 15, 6);
+      color: rgb(24, 17, 239);
       transition: ease-in-out 0.3s;
     }
+  }
+
+  #postsinfo {
+    color: #111;
   }
 
   #button {
@@ -30,7 +38,17 @@ a {
     color: white;
 
     &:hover {
-      background-color: rgb(196, 15, 6);
+      background-color: rgb(24, 17, 239);
+      color: #111;
+      transition: ease-in-out 0.3s;
+    }
+  }
+  #buttons {
+    background-color: #fff;
+    color: #111;
+
+    &:hover {
+      background-color: rgb(24, 17, 239);
       color: #111;
       transition: ease-in-out 0.3s;
     }
@@ -38,7 +56,41 @@ a {
   #image {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   }
+  #logo {
+    background: -webkit-linear-gradient(#262626, rgb(24, 17, 239));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  #reg-log {
+    &:hover {
+      color: rgb(24, 17, 239);
+      transition: ease-in-out 0.3s;
+    }
+  }
+  #socialMedia {
+    a {
+      color: #111;
+      text-decoration: none;
+      font-size: 1.2rem;
+
+      &:hover {
+        color: rgb(24, 17, 239);
+        transition: ease-in-out 0.3s;
+      }
+    }
+  }
+  #theme__ball {
+    background-color: rgb(24, 17, 239);
+  }
+  #theme__container {
+    border: 1.5px solid #111;
+    background-color: #111;
+  }
 }
+// #reg-log-title {
+//   color: #fff;
+// }
 
 .dark {
   background-color: #111;
@@ -51,5 +103,16 @@ a {
       color: rgb(196, 15, 6);
       transition: ease-in-out 0.3s;
     }
+  }
+  #theme__ball {
+    background-color: rgb(196, 15, 6);
+  }
+
+  #nav {
+    background: linear-gradient(45deg, #111, rgb(153, 12, 5));
+  }
+  #theme__container {
+    background-color: #111;
+    border: 1.5px solid #111;
   }
 }

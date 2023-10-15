@@ -8,11 +8,6 @@ import useSWR from "swr";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-// export const metadata = {
-//   title: "User Posts",
-//   description: "User Posts",
-// };
-
 export default function UserPosts() {
   const session = useSession();
   const router = useRouter();
@@ -36,18 +31,18 @@ export default function UserPosts() {
     }
   };
 
-  const handleUpdate = async (id) => {
-    console.log("Updating post with ID:", id); // Log the id
-    try {
-      await fetch(`/api/posts/${id}`, {
-        method: "PUT",
-      });
-      mutate();
-      router.push(`/updatepost/${id}`);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const handleUpdate = async (id) => {
+  //   console.log("Updating post with ID:", id); // Log the id
+  //   try {
+  //     await fetch(`/api/posts/${id}`, {
+  //       method: "PUT",
+  //     });
+  //     mutate();
+  //     router.push(`/updatepost/${id}`);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   return (
     <div className={styles.container}>
@@ -68,20 +63,26 @@ export default function UserPosts() {
                 </Link>
               </motion.div>
 
-              <div className={styles.buttons}>
+              <motion.div
+                whileInView={{ opacity: 1 }}
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.5, type: "tween" }}
+                className={styles.buttons}
+              >
                 <button
                   className={styles.delete}
+                  id="buttons"
                   onClick={() => handleDelete(post._id)}
                 >
                   X
                 </button>
-                <button
+                {/* <button
                   className={styles.update}
                   onClick={() => handleUpdate(post._id)}
                 >
                   Update
-                </button>
-              </div>
+                </button> */}
+              </motion.div>
             </div>
           ))}
       </div>

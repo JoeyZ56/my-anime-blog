@@ -11,14 +11,15 @@ import SocialMedia from "../SocialMedia/SocialMedia";
 export default function NavBar() {
   const session = useSession();
   return (
-    <div className={styles.nav}>
+    <div className={styles.nav} id="nav">
       <motion.div
-        whileHover={{ scale: 1.2 }}
-        whileTap={{ scale: 1.1 }}
-        drag="x"
-        dragConstraints={{ left: -100, right: 100 }}
+        whileInView={{ opacity: 1 }}
+        whileHover={{ scale: 1.1 }}
+        transition={{ duration: 0.5, type: "tween" }}
       >
-        <h1>Anime Blog</h1>
+        <h1 className={styles.logo} id="logo">
+          Anime Blog
+        </h1>
       </motion.div>
       <SocialMedia />
       <DarkModeToggle />
@@ -36,19 +37,16 @@ export default function NavBar() {
           My Posts
         </Link>
       )}
-
       {session.status != "authenticated" && (
         <Link href="/register" className={styles.links} id="links">
           Register
         </Link>
       )}
-
       {session.status != "authenticated" && (
         <Link href="/login" className={styles.links} id="links">
           Login
         </Link>
       )}
-
       <Logout />
     </div>
   );

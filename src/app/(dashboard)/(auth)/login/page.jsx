@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./login.module.scss";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 const Login = ({ url }) => {
@@ -34,7 +35,11 @@ const Login = ({ url }) => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>{success ? success : "Welcome Back"}</h1>
+      <br />
+      <br />
+      <h1 className={styles.title} id="titles">
+        Welcome Back!
+      </h1>
 
       <form onSubmit={handleSubmit} className={styles.form}>
         <input
@@ -49,13 +54,29 @@ const Login = ({ url }) => {
           required
           className={styles.input}
         />
-        <button className={styles.button}>Login</button>
+
+        <motion.div
+          whileInView={{ opacity: 1 }}
+          whileHover={{ scale: 1.1 }}
+          transition={{ duration: 0.5, type: "tween" }}
+        >
+          <button className={styles.button} id="buttons">
+            Login
+          </button>
+        </motion.div>
+        <br />
         {error && error}
       </form>
 
-      <Link className={styles.link} href="/register">
-        Create new account
-      </Link>
+      <motion.div
+        whileInView={{ opacity: 1 }}
+        whileHover={{ scale: 1.1 }}
+        transition={{ duration: 0.5, type: "tween" }}
+      >
+        <Link className={styles.link} id="reg-log" href="/register">
+          Create new account
+        </Link>
+      </motion.div>
     </div>
   );
 };

@@ -44,7 +44,7 @@ const Blog = () => {
       </div>
 
       {sortedData.map((item) => (
-        <div className={styles.content} key={item._id}>
+        <div className={styles.content} key={item._id} id="postsinfo">
           <h1 className={styles.title}>{item.title}</h1>
           <p className={styles.desc}>{item.desc}</p>
           <Link

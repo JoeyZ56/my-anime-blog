@@ -42,4 +42,14 @@ Next-Auth: https://next-auth.js.org/
 
 Framer-Motion: https://www.framer.com/motion/
 
+### Future Plans
+
+Users can update posts and account settings
+
+Users can have a profile image
+
+Users can make comments on posts
+
+Make website look better on mobile
+
 </div>

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import styles from "./register.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 
 const Register = () => {
   const [error, setError] = useState(false);
@@ -38,9 +39,13 @@ const Register = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id="register">
       <div>
-        <h2 className={styles.title}>Register Today!</h2>
+        <br />
+        <br />
+        <h2 className={styles.title} id="reg-log-title">
+          Register Today!
+        </h2>
       </div>
       <form className={styles.form} onSubmit={handleSubmit}>
         <input
@@ -61,17 +66,31 @@ const Register = () => {
           className={styles.input3}
           required
         />
-        <input
+        {/* <input
           type="text"
           placeholder="Profile Image URL"
           className={styles.input4}
-        />
-        <button className={styles.button}>Register</button>
+        /> */}
+        <motion.div
+          whileInView={{ opacity: 1 }}
+          whileHover={{ scale: 1.1 }}
+          transition={{ duration: 0.5, type: "tween" }}
+        >
+          <button className={styles.button} id="buttons">
+            Register
+          </button>
+        </motion.div>
       </form>
       {error && "An error has accoured Registering!"}
-      <Link className={styles.link} href="/login">
-        Already a User?
-      </Link>
+      <motion.div
+        whileInView={{ opacity: 1 }}
+        whileHover={{ scale: 1.1 }}
+        transition={{ duration: 0.5, type: "tween" }}
+      >
+        <Link className={styles.link} id="reg-log" href="/login">
+          Already a User?
+        </Link>
+      </motion.div>
     </div>
   );
 };

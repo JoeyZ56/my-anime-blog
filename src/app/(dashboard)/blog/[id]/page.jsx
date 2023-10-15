@@ -29,7 +29,7 @@ const BlogPost = async ({ params }) => {
   const data = await getData(params.id);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id="postsinfo">
       <div className={styles.author}>
         {/* <Link href={`/blog${params.id}`} className={styles.link}> */}
         {data.profileImage && (

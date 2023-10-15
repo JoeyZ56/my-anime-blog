@@ -4,6 +4,7 @@ import styles from "./CreatePost.module.scss";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import useSWR from "swr";
+import { motion } from "framer-motion";
 
 export default function CreatePost() {
   const session = useSession();
@@ -48,15 +49,26 @@ export default function CreatePost() {
       <form className={styles.newPost} onSubmit={handleSubmit}>
         <h1>Create Post</h1>
         <input type="text" placeholder="Title" className={styles.input} />
-        <input type="text" placeholder="Desc" className={styles.input} />
+        <input type="text" placeholder="Description" className={styles.input} />
         <input type="text" placeholder="Image" className={styles.input} />
+        <br />
+        <br />
+
         <textarea
           placeholder="What unhinged anime thoughts do you have today?"
           className={styles.content}
           cols={30}
           rows={10}
         ></textarea>
-        <button className={styles.button}>Send</button>
+        <motion.div
+          whileInView={{ opacity: 1 }}
+          whileHover={{ scale: 1.1 }}
+          transition={{ duration: 0.5, type: "tween" }}
+        >
+          <button className={styles.button} id="buttons">
+            Post
+          </button>
+        </motion.div>
       </form>
     </div>
   );

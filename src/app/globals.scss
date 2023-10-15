@@ -59,6 +59,7 @@ a {
   #logo {
     background: -webkit-linear-gradient(#262626, rgb(24, 17, 239));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 

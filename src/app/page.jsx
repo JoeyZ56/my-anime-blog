@@ -1,6 +1,5 @@
 "use client";
 import { EmblaCarousel } from "@/components/EmblaCarousel/EmblaCarousel";
-import styles from "./home.module.scss";
 import Blog from "./(dashboard)/blog/page";
 
 export default function Home() {
@@ -12,7 +11,6 @@ export default function Home() {
       <div>
         <Blog />
       </div>
-      <div></div>
     </>
   );
 }

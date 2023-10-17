@@ -2,7 +2,7 @@
 require("dotenv").config();
 const nextConfig = {
   images: {
-    domains: ["*", "wallpapercave.com"],
+    domains: ["*", "wallpapercave.com", "images4.fanpop.com"],
     remotePatterns: [
       {
         protocol: "https",

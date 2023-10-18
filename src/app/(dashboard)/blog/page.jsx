@@ -33,6 +33,10 @@ const Blog = () => {
     fetchData();
   }, []); // Empty dependency array means this effect runs once, similar to componentDidMount
 
+  if (!data) {
+    return <div>Loading...</div>;
+  }
+
   const sortedData = data.sort(
     (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
   );

@@ -9,12 +9,9 @@ import { notFound } from "next/navigation";
 async function getData(id) {
   console.log("Fetching data for ID:", id);
   try {
-    const res = await fetch(
-      `https://my-anime-blog.vercel.app/api/posts/${id}`,
-      {
-        cache: "no-store",
-      }
-    );
+    const res = await fetch(`/api/posts/${id}`, {
+      cache: "no-store",
+    });
 
     if (!res.ok) {
       console.error(`Failed to fetch data for ID ${id}. Status: ${res.status}`);

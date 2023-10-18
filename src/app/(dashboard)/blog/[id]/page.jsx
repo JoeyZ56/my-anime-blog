@@ -10,7 +10,7 @@ async function getData(id) {
   console.log("Fetching data for ID:", id);
   try {
     const res = await fetch(
-      `https://my-anime-blog-bk1rnmnu8-joeyzs-projects.vercel.app//api/posts/${id}`,
+      `https://my-anime-blog.vercel.app/api/posts/${id}`,
       {
         cache: "no-store",
       }

@@ -30,9 +30,9 @@ As a user I can add people to my friends list and view their posts on my feed.
 
 As a user I can join a anime topics page and add posts specific to that topic and only seen in that topic feed.
 
-### Chatroom
+### Comments
 
-As a user I can start a chat room with others to have private conversations only others in the chatroom can see.
+As a user I can make comments on specific posts
 
 # Technology Used
 
@@ -41,6 +41,12 @@ Embla Carousel: https://www.embla-carousel.com/
 Next-Auth: https://next-auth.js.org/
 
 Framer-Motion: https://www.framer.com/motion/
+
+## Broken and Needs Fixin!
+
+Comments can be made, but wont show till a reload
+
+All comments are shown on all posts, they need to be seperate by postId
 
 ### Future Plans
 

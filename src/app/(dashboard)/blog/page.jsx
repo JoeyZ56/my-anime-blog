@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./blog.module.scss";
 import Link from "next/link";
 import Image from "next/image";
+import { loader } from "@/assets";
 import { motion } from "framer-motion";
 
 async function getData() {
@@ -34,7 +35,11 @@ const Blog = () => {
   }, []); // Empty dependency array means this effect runs once, similar to componentDidMount
 
   if (!data) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <Image src={loader} alt="loader" className="image__loader" />
+      </div>
+    );
   }
 
   const sortedData = data.sort(
@@ -43,7 +48,7 @@ const Blog = () => {
 
   return (
     <div className={styles.mainContainer}>
-      <div>
+      <div id="community_posts-title">
         <h1>Community Posts</h1>
       </div>
 

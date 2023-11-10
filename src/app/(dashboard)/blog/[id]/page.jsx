@@ -4,6 +4,9 @@ import styles from "./postId.module.scss";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { notFound } from "next/navigation";
+import CommentsForm from "@/components/CommentsForm/CommentsForm";
+import UserComments from "../../usercomments/page";
+import { loader } from "@/assets";
 // import Link from "next/link";
 
 async function getData(id) {
@@ -53,7 +56,11 @@ const BlogPost = ({ params }) => {
   }, [params.id]);
 
   if (!data) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <Image src={loader} alt="loader" className="image__loader" />
+      </div>
+    );
   }
 
   return (
@@ -83,6 +90,12 @@ const BlogPost = ({ params }) => {
       </div>
       <div className={styles.content}>
         <p className={styles.text}>{data.content}</p>
+      </div>
+      <div>
+        <CommentsForm id={params.id} />
+      </div>
+      <div>
+        <UserComments id={params.id} />
       </div>
     </div>
   );

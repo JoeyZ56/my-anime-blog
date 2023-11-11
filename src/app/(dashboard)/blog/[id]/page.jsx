@@ -4,8 +4,8 @@ import styles from "./postId.module.scss";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { notFound } from "next/navigation";
-import CommentsForm from "../../../../components/CommentsForm/CommentsForm";
-import UserComments from "../../../../components/UserComments/UserComments";
+import CommentsForm from "@/components/CommentsForm/CommentsForm";
+import UserComments from "@/components/UserComments/UserComments";
 import { loader } from "@/assets";
 
 async function getData(id) {

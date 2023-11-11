@@ -56,6 +56,6 @@ Users can have a profile image
 
 Users can make comments on posts
 
-Make website look better on mobile
+click users name of comments to be directed to the users post page
 
 </div>

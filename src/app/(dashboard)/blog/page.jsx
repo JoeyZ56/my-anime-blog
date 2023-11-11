@@ -51,10 +51,9 @@ const Blog = () => {
   return (
     <>
       <div className={styles.mainContainer}>
-        <div id="community_posts-title">
+        <div className={styles.titleContainer} id="community_posts-title">
           <h1>Community Posts</h1>
         </div>
-
         {sortedData.map((item) => (
           <div className={styles.content} key={item._id} id="postsinfo">
             <h1 className={styles.title}>{item.title}</h1>
@@ -73,7 +72,7 @@ const Blog = () => {
               >
                 <Image
                   src={item.img}
-                  alt=""
+                  alt="item"
                   width={400}
                   height={250}
                   className={styles.image}

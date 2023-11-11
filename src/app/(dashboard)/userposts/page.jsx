@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import useSWR from "swr";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import ScrollTopBtn from "@/components/ScrollTopBtn/ScrollTopBtn";
 
 export default function UserPosts() {
   const session = useSession();
@@ -30,19 +31,6 @@ export default function UserPosts() {
       console.log(error);
     }
   };
-
-  // const handleUpdate = async (id) => {
-  //   console.log("Updating post with ID:", id); // Log the id
-  //   try {
-  //     await fetch(`/api/posts/${id}`, {
-  //       method: "PUT",
-  //     });
-  //     mutate();
-  //     router.push(`/updatepost/${id}`);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
   return (
     <div className={styles.container}>

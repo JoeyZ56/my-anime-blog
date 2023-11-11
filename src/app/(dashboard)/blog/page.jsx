@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { loader } from "@/assets";
 import { motion } from "framer-motion";
+import Footer from "@/components/Footer/Footer";
+import ScrollTopBtn from "@/components/ScrollTopBtn/ScrollTopBtn";
 
 async function getData() {
   const res = await fetch("api/posts", {
@@ -47,40 +49,44 @@ const Blog = () => {
   );
 
   return (
-    <div className={styles.mainContainer}>
-      <div id="community_posts-title">
-        <h1>Community Posts</h1>
-      </div>
-
-      {sortedData.map((item) => (
-        <div className={styles.content} key={item._id} id="postsinfo">
-          <h1 className={styles.title}>{item.title}</h1>
-          <p className={styles.desc}>{item.desc}</p>
-          <Link
-            href={`/blog/${item._id}`}
-            className={styles.container}
-            key={item._id}
-            id="links"
-          >
-            <motion.div
-              whileInView={{ opacity: 1 }}
-              whileHover={{ scale: 1.1 }}
-              transition={{ duration: 0.5, type: "tween" }}
-              className={styles.imageContainer}
-            >
-              <Image
-                src={item.img}
-                alt=""
-                width={400}
-                height={250}
-                className={styles.image}
-                id="image"
-              />
-            </motion.div>
-          </Link>
+    <>
+      <div className={styles.mainContainer}>
+        <div id="community_posts-title">
+          <h1>Community Posts</h1>
         </div>
-      ))}
-    </div>
+
+        {sortedData.map((item) => (
+          <div className={styles.content} key={item._id} id="postsinfo">
+            <h1 className={styles.title}>{item.title}</h1>
+            <p className={styles.desc}>{item.desc}</p>
+            <Link
+              href={`/blog/${item._id}`}
+              className={styles.container}
+              key={item._id}
+              id="links"
+            >
+              <motion.div
+                whileInView={{ opacity: 1 }}
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.5, type: "tween" }}
+                className={styles.imageContainer}
+              >
+                <Image
+                  src={item.img}
+                  alt=""
+                  width={400}
+                  height={250}
+                  className={styles.image}
+                  id="image"
+                />
+              </motion.div>
+            </Link>
+          </div>
+        ))}
+      </div>
+      <ScrollTopBtn />
+      <Footer />
+    </>
   );
 };
 

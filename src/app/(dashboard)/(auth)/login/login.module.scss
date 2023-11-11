@@ -5,6 +5,11 @@
   background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
+
+  @media screen and (max-width: 768px) {
+    background-image: url("https://wallpapercave.com/wp/wp6557907.jpg");
+    margin-top: -1rem;
+  }
 }
 .title {
   display: flex;
@@ -13,6 +18,10 @@
 
   color: #fff;
   margin-top: -0.5rem;
+
+  @media screen and (max-width: 768px) {
+    margin-bottom: 1rem;
+  }
 }
 .form {
   display: flex;
@@ -64,7 +73,6 @@
   justify-content: center;
   align-items: center;
 
-  margin-top: 2rem;
   color: white;
   font-weight: 600;
   font-size: large;

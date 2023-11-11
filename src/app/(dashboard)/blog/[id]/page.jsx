@@ -5,9 +5,8 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { notFound } from "next/navigation";
 import CommentsForm from "@/components/CommentsForm/CommentsForm";
-import UserComments from "../../usercomments/page";
+import UserComments from "@/components/UserComments/UserComments";
 import { loader } from "@/assets";
-// import Link from "next/link";
 
 async function getData(id) {
   console.log("Fetching data for ID:", id);
@@ -27,15 +26,6 @@ async function getData(id) {
     return notFound();
   }
 }
-
-//use generate  meta data for dynamic pages
-// export async function generateMetadata({ params }) {
-//   const post = await getData(params.id);
-//   return {
-//     title: post.title,
-//     description: post.desc,
-//   };
-// }
 
 const BlogPost = ({ params }) => {
   const [data, setData] = useState(null);

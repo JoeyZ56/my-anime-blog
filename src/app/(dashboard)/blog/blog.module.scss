@@ -13,6 +13,11 @@
   width: 500px;
   height: 350px;
   margin-bottom: 3rem;
+
+  @media screen and (max-width: 768px) {
+    width: 40vh;
+    height: 30vh;
+  }
 }
 
 .content {
@@ -20,4 +25,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 768px) {
+    h1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      font-size: 1rem;
+    }
+  }
 }

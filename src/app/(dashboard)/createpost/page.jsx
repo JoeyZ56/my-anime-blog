@@ -47,7 +47,7 @@ export default function CreatePost() {
   return (
     <div className={styles.container}>
       <form className={styles.newPost} onSubmit={handleSubmit}>
-        <h1>Create Post</h1>
+        <h1 className={styles.title}>Create Post</h1>
         <input type="text" placeholder="Title" className={styles.input} />
         <input type="text" placeholder="Description" className={styles.input} />
         <input type="text" placeholder="Image" className={styles.input} />

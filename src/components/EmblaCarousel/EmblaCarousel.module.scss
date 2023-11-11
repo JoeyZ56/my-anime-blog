@@ -15,6 +15,11 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+
+  @media screen and (max-width: 768px) {
+    height: 50%;
+    width: 50%;
+  }
 }
 
 .imgs img {

@@ -22,7 +22,6 @@ export default function NavBar() {
         </h1>
       </motion.div>
       <SocialMedia />
-      <DarkModeToggle />
 
       <Link href="/" className={styles.links} id="links">
         Dashboard
@@ -42,11 +41,13 @@ export default function NavBar() {
           Register
         </Link>
       )}
+
       {session.status != "authenticated" && (
         <Link href="/login" className={styles.links} id="links">
           Login
         </Link>
       )}
+      <DarkModeToggle />
       <Logout />
     </div>
   );

@@ -1,0 +1,41 @@
+.footerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+
+  @media (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .animeLinks {
+      margin-top: 20px;
+    }
+  }
+}
+
+.animeLinks {
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    h4 {
+      font-size: 0.5rem;
+      font-weight: 900;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+.animeLinks h4 {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.copyRight {
+  font-size: 14px;
+}

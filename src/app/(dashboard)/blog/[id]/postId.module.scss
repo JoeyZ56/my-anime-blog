@@ -21,22 +21,37 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      margin-left: 4rem;
+    }
+    h3 {
+      margin-top: 1rem;
+    }
+  }
 }
 
 .avatar {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
 }
 
 .imageContainer {
   width: 600px;
   height: 500px;
   position: relative;
+
+  @media screen and (max-width: 768px) {
+    width: 40vh;
+    height: 30vh;
+    margin-top: 1rem;
+  }
 }
 
 .username {
@@ -46,11 +61,28 @@
 
   margin-bottom: 1rem;
   font-size: 30px;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 1rem;
+  }
 }
 .content {
   padding: 3rem 10rem 10rem 10rem;
 
   p {
     font-size: 25px;
+  }
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    padding: 1rem 0rem 0rem 0rem;
+
+    p {
+      font-size: 1rem;
+    }
   }
 }

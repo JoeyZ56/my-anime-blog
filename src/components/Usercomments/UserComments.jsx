@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import styles from "./UserComments.module.scss";
 import Image from "next/image";
 import { loader } from "@/assets";
-import { motion } from "framer-motion";
 
 async function getData() {
   const res = await fetch("/api/comments", {
@@ -65,6 +64,7 @@ const UserComments = () => {
     (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
   );
 
+  console.log(data);
   return (
     <div className={styles.mainContainer}>
       <div>
@@ -81,13 +81,14 @@ const UserComments = () => {
             >
               <h3 className={styles.username}>{data.username}</h3>
               <p className={styles.userComments}>{data.comment}</p>
-
-              <button
-                className={styles.deleteButton}
-                onClick={() => handleDelete(data._id)}
-              >
-                ❌
-              </button>
+              <div className={styles.btnContainer}>
+                <button
+                  className={styles.deleteButton}
+                  onClick={() => handleDelete(data._id)}
+                >
+                  ❌
+                </button>
+              </div>
             </div>
           )
         )

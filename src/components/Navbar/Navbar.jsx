@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import styles from "./Navbar.module.scss";
 import { useSession } from "next-auth/react";
@@ -22,6 +23,7 @@ export default function NavBar() {
         </h1>
       </motion.div>
       <SocialMedia />
+      <DarkModeToggle />
 
       <Link href="/" className={styles.links} id="links">
         Dashboard
@@ -47,7 +49,7 @@ export default function NavBar() {
           Login
         </Link>
       )}
-      <DarkModeToggle />
+
       <Logout />
     </div>
   );

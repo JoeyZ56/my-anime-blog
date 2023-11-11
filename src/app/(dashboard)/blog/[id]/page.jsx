@@ -47,7 +47,7 @@ const BlogPost = ({ params }) => {
 
   if (!data) {
     return (
-      <div>
+      <div className="image_loader-container">
         <Image src={loader} alt="loader" className="image__loader" />
       </div>
     );

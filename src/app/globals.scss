@@ -10,6 +10,7 @@ body {
   background-color: black;
   // color: white;
   overflow-x: hidden;
+  width: 100vw;
 }
 
 a {
@@ -40,6 +41,9 @@ a {
 
   #postsinfo {
     color: #111;
+  }
+  #postImageID {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   }
 
   #button {
@@ -138,6 +142,28 @@ a {
       color: #111;
     }
   }
+  #homeLink {
+    background-color: #111;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+
+    &:hover {
+      background-color: rgb(24, 17, 239);
+      transition: ease-in-out 0.3s;
+    }
+  }
+  #usernameID {
+    background: -webkit-linear-gradient(#262626, rgb(24, 17, 239));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  #community_posts-title {
+    background: -webkit-linear-gradient(#262626, rgb(24, 17, 239));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 .dark {
@@ -172,6 +198,20 @@ a {
     a {
       color: #fff;
     }
+  }
+
+  #usernameID {
+    background: -webkit-linear-gradient(#fff, rgb(196, 15, 6));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  #community_posts-title {
+    background: -webkit-linear-gradient(#fff, rgb(196, 15, 6));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }
 

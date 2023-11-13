@@ -61,8 +61,8 @@ const Blog = () => {
     return (
       <>
         <div className={styles.mainContainer}>
-          <div className={styles.titleContainer} id="community_posts-title">
-            <h1>Community Posts</h1>
+          <div className={styles.titleContainer} id="community_posts-container">
+            <h1 id="community_posts-title">Community Posts</h1>
           </div>
           {sortedData.map((item) => (
             <div className={styles.content} key={item._id} id="postsinfo">

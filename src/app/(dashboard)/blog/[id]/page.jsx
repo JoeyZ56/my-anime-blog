@@ -7,6 +7,9 @@ import { notFound } from "next/navigation";
 import CommentsForm from "@/components/CommentsForm/CommentsForm";
 // import UserComments from "@/components/UserComments/UserComments";
 import { loader } from "@/assets";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import Footer from "@/components/Footer/Footer";
 
 async function getData(id) {
   console.log("Fetching data for ID:", id);
@@ -67,7 +70,9 @@ const BlogPost = ({ params }) => {
           />
         )}
         {/* </Link> */}
-        <span className={styles.username}>{data.username}</span>
+        <span className={styles.username} id="usernameID">
+          {data.username}
+        </span>
       </div>
       <div className={styles.top}>
         <div className={styles.info}>
@@ -75,7 +80,13 @@ const BlogPost = ({ params }) => {
           <h3 className={styles.desc}>{data.desc}</h3>
         </div>
         <div className={styles.imageContainer}>
-          <Image src={data.img} alt="" fill={true} className={styles.image} />
+          <Image
+            src={data.img}
+            alt="image"
+            fill={true}
+            className={styles.image}
+            id="postImageID"
+          />
         </div>
       </div>
       <div className={styles.content}>
@@ -83,6 +94,19 @@ const BlogPost = ({ params }) => {
       </div>
       <div>{/* <CommentsForm id={params.id} /> */}</div>
       <div>{/* <UserComments id={params.id} /> */}</div>
+      <motion.div
+        whileInView={{ opacity: 1 }}
+        whileHover={{ scale: 1.1 }}
+        transition={{ duration: 0.5, type: "tween" }}
+        className={styles.homeLinkContainer}
+      >
+        <Link className={styles.homeLink} id="homeLink" href="/">
+          Dashboard
+        </Link>
+      </motion.div>
+      <div className={styles.footerContainer}>
+        <Footer />
+      </div>
     </div>
   );
 };

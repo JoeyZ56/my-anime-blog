@@ -20,7 +20,7 @@ const ScrollTopBtn = () => {
         className={styles.scrollBtn}
         id="scrollBtn"
       >
-        <i className="fas fa-arrow-up">Up</i>
+        <span className="fas fa-arrow-up">Scroll to Top</span>
       </motion.button>
     </div>
   );

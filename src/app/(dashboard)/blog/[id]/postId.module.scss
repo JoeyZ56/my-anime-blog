@@ -18,6 +18,20 @@
 
 .title {
   @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+    margin-bottom: -1.2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.desc {
+  @media screen and (max-width: 768px) {
+    font-size: 1rem;
+    padding: 1.2rem;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,6 +51,7 @@
 
     h3 {
       margin-top: 1rem;
+      text-align: center;
     }
   }
 }
@@ -64,11 +79,15 @@
   justify-content: center;
   align-items: center;
 
-  margin-bottom: 1rem;
-  font-size: 30px;
+  margin-top: 1rem;
+  font-size: 3rem;
 
   @media screen and (max-width: 768px) {
     margin-top: 1rem;
+    margin-bottom: 20px;
+
+    font-size: 2.5rem;
+    font-weight: 600;
   }
 }
 .content {
@@ -88,6 +107,38 @@
 
     p {
       font-size: 1rem;
+      text-align: center;
     }
   }
+}
+
+.homeLinkContainer {
+  margin-bottom: 2rem;
+}
+
+.homeLink {
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 5px;
+  color: #000;
+  cursor: pointer;
+  font-size: 1rem;
+
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: rgb(196, 15, 6);
+    transition: ease-in-out 0.3s;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.5rem;
+  }
+}
+
+.footerContainer {
+  width: 100vw;
 }

@@ -48,6 +48,8 @@ Comments can be made, but wont show till a reload
 
 All comments are shown on all posts, they need to be seperate by postId
 
+login background picture takes to long to load
+
 ### Future Plans
 
 Users can update posts and account settings

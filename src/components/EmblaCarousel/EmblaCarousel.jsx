@@ -11,6 +11,9 @@ export const EmblaCarousel = () => {
     <div className={styles.embla} ref={emblaRef}>
       <div className={styles.container}>
         <div className={styles.imgs}>
+          <img src="https://images7.alphacoders.com/105/thumb-1920-1054068.png" />
+        </div>
+        <div className={styles.imgs}>
           <img src="https://media.comicbook.com/2019/06/black-clover-1175515.jpeg?auto=webp" />
         </div>
         <div className={styles.imgs}>

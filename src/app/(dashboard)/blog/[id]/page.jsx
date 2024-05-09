@@ -4,8 +4,7 @@ import styles from "./postId.module.scss";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { notFound } from "next/navigation";
-import CommentsForm from "@/components/CommentsForm/CommentsForm";
-// import UserComments from "@/components/UserComments/UserComments";
+
 import { loader } from "@/assets";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -92,8 +91,7 @@ const BlogPost = ({ params }) => {
       <div className={styles.content}>
         <p className={styles.text}>{data.content}</p>
       </div>
-      <div>{/* <CommentsForm id={params.id} /> */}</div>
-      <div>{/* <UserComments id={params.id} /> */}</div>
+
       <motion.div
         whileInView={{ opacity: 1 }}
         whileHover={{ scale: 1.1 }}

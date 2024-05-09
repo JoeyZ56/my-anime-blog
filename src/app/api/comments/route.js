@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import connect from "@/lib/database";
-import Comment from "@/models/Comments";
+import Chat from "@/models/Chat";
 
-//http://localhost:3000/api/comments
+//http://localhost:3000/api/chat
 
 export const GET = async (request) => {
   const url = new URL(request.url);
@@ -22,7 +22,7 @@ export const GET = async (request) => {
       query.username = username;
     }
 
-    const comments = await Comment.find(query);
+    const comments = await Chat.find(query);
     return new NextResponse(JSON.stringify(comments), { status: 200 });
   } catch (error) {
     return new NextResponse("Can not find comment by postId", { status: 500 });
@@ -34,7 +34,7 @@ export const POST = async (request) => {
     const body = await request.json();
     console.log("Received data:", body); // Log the received data
 
-    const newComment = new Comment(body);
+    const newComment = new Chat(body);
 
     await connect();
     await newComment.save();

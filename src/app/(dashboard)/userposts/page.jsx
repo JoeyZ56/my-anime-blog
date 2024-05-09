@@ -12,7 +12,6 @@ import Footer from "@/components/Footer/Footer";
 
 export default function UserPosts() {
   const session = useSession();
-  const router = useRouter();
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
   const { data, mutate } = useSWR(
@@ -66,17 +65,12 @@ export default function UserPosts() {
                   >
                     X
                   </button>
-                  {/* <button
-                  className={styles.update}
-                  onClick={() => handleUpdate(post._id)}
-                >
-                  Update
-                </button> */}
                 </motion.div>
               </div>
             ))}
         </div>
       </div>
+
       <div>
         <Footer />
       </div>

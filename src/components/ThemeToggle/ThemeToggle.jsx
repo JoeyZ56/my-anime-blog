@@ -9,8 +9,8 @@ const DarkModeToggle = () => {
 
   return (
     <div className={styles.container} id="theme__container" onClick={toggle}>
-      <div className={styles.icon}>🌙</div>
-      <div className={styles.icon}>🔆</div>
+      <div className={styles.icon}>🔵</div>
+      <div className={styles.icon}>🔴</div>
       <motion.div
         whileInView={{ opacity: 1 }}
         whileHover={{ scale: 1.1 }}

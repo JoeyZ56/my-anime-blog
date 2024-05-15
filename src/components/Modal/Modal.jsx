@@ -1,7 +1,7 @@
 import styles from "./Modal.module.scss";
 
 const Modal = ({ isOpen, onClose, children }) => {
-  if (!open) return null;
+  if (!isOpen) return null;
 
   return (
     <div className={styles.overlay} onClick={onClose}>

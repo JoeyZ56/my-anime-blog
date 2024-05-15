@@ -10,13 +10,15 @@ const handler = NextAuth({
       id: "credentials",
       name: "Credentials",
       async authorize(credentials) {
-        //Check if the user exists.
+        // Check if the user exists.
         await connect();
 
         try {
           const user = await User.findOne({
             email: credentials.email,
           });
+
+          console.log("User fetched from database:", user);
 
           if (user) {
             const isPasswordCorrect = await bcrypt.compare(
@@ -25,7 +27,11 @@ const handler = NextAuth({
             );
 
             if (isPasswordCorrect) {
-              return user;
+              // Return the user object along with the userId
+              return {
+                ...user.toJSON(),
+                id: user._id.toString(),
+              };
             } else {
               throw new Error("Wrong Credentials!");
             }

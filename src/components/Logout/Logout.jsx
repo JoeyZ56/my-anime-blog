@@ -3,9 +3,16 @@ import React from "react";
 import { signOut, useSession } from "next-auth/react";
 import styles from "./Logout.module.scss";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const Logout = () => {
   const session = useSession();
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    await signOut();
+    router.push("/");
+  };
   return (
     <motion.div
       whileInView={{ opacity: 1 }}
@@ -14,7 +21,7 @@ const Logout = () => {
     >
       {" "}
       {session.status === "authenticated" && (
-        <button className={styles.button} id="button" onClick={signOut}>
+        <button className={styles.button} id="button" onClick={handleLogout}>
           Logout
         </button>
       )}

@@ -4,11 +4,10 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-}
-.img-container {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-bottom: 20px;
+
+  Image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

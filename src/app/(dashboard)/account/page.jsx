@@ -11,19 +11,18 @@ const Account = () => {
   const { data: session } = useSession();
 
   const user = session?.user;
-  // console.log(session);
+  console.log(session);
 
   const fetchBio = async () => {
     try {
-      // console.log("User:", user);
-      const res = await fetch(`/api/user/bio/?email=${user.email}`);
+      const res = await fetch(`/api/user/bio?email=${user.email}`);
       const data = await res.json();
 
       if (data && data.length > 0) {
         setBio(data[0].bio);
       }
     } catch (error) {
-      console.error(error, "error fetching bio");
+      console.log(error, "error fetching bio");
     }
   };
 
@@ -31,7 +30,7 @@ const Account = () => {
     if (session) {
       fetchBio();
     }
-  }, [session]);
+  });
 
   const handleBioModal = () => {
     setIsOpen(!isOpen);
@@ -48,8 +47,8 @@ const Account = () => {
 
   const saveBio = async () => {
     try {
-      await fetch("/api/user/bio[id]", {
-        method: "PUT",
+      const response = await fetch("/api/user/bio", {
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
@@ -58,10 +57,15 @@ const Account = () => {
           bio: newBio,
         }),
       });
-      closeModal();
-      setBio(newBio);
+      const result = await response.json();
+      if (response.ok) {
+        setBio(newBio);
+        closeModal();
+      } else {
+        throw new Error(result.message);
+      }
     } catch (error) {
-      console.log(error, "error saving bio");
+      console.error("Error saving bio:", error);
     }
   };
 

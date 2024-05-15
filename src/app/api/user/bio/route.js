@@ -3,50 +3,64 @@ import connect from "@/lib/database";
 import Bio from "@/models/Bio";
 
 export const GET = async (request) => {
-  const url = new URL(request.url);
-  const userEmail = url.searchParams.get("email");
-
+  await connect();
   try {
-    // Ensure database connection is established
-    await connect();
+    const userEmail = decodeURIComponent(
+      new URL(request.url).searchParams.get("email")
+    );
+    console.log("Searching for bio with email:", userEmail);
 
-    const query = {};
-
-    if (userEmail) {
-      query.email = userEmail;
-    }
-
-    // Query the Bio model
-    const bio = await Bio.findOne(query);
-
-    // Check if bio is empty
-    if (!bio || bio.length === 0) {
+    const bio = await Bio.findOne({ email: userEmail });
+    if (!bio) {
       return new NextResponse("Bio not found", { status: 404 });
     }
 
-    // Return bio data if found
-    return new NextResponse(JSON.stringify(bio), { status: 200 });
+    return new NextResponse(JSON.stringify(bio), {
+      status: 200,
+      headers: { "Content-Type": "application/ json" },
+    });
   } catch (error) {
-    // Handle database errors
-    console.error("Database Error:", error);
-    return new NextResponse("Database Error", { status: 500 });
+    console.error("GET Database Error:", error);
+    return new NextResponse(`Database Error: ${error.message}`, {
+      status: 500,
+    });
   }
 };
 
 export const POST = async (request) => {
+  await connect(); // Make sure your database connection is properly established
   try {
-    const body = await request.json();
-    console.log("Received data:", body);
+    const { email, bio } = await request.json(); // Extract data from the request body
 
-    const newBio = new Bio(body);
+    if (!email || !bio) {
+      return new NextResponse("Email and bio are required", {
+        status: 400,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
 
-    await connect();
-    await newBio.save();
-    console.log("Bio saved:", newBio);
+    // Using findOneAndUpdate with upsert to create or update the bio
+    const updatedBio = await Bio.findOneAndUpdate(
+      { email },
+      { $set: { bio } },
+      { new: true, upsert: true, returnDocument: "after" } // Ensure this is set to handle upserts correctly
+    );
 
-    return new NextResponse("Bio has been created", { status: 201 });
+    return new NextResponse(
+      JSON.stringify({
+        message: "Bio updated successfully",
+        bio: updatedBio,
+      }),
+      {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
   } catch (error) {
     console.error("Database Error:", error);
-    return new NextResponse("Database Error", { status: 500 });
+    return new NextResponse(
+      JSON.stringify({ error: "Database error, unable to update bio" }),
+      { status: 500, headers: { "Content-Type": "application/json" } }
+    );
   }
 };

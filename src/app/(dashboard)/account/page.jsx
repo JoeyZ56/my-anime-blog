@@ -19,7 +19,7 @@ const Account = () => {
       const data = await res.json();
 
       if (data && data.length > 0) {
-        setBio(data[0].bio);
+        setBio(data.bio);
       }
     } catch (error) {
       console.log(error, "error fetching bio");
@@ -82,7 +82,7 @@ const Account = () => {
         />
       </div>
 
-      {/* <p>{user.bio}</p> */}
+      <p>{bio}</p>
       <button onClick={handleBioModal}>Edit Bio</button>
       <Modal isOpen={isOpen} onClose={closeModal}>
         <h2>Edit Bio</h2>

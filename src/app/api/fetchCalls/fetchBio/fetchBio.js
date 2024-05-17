@@ -1,13 +1,15 @@
-const fetchBio = async () => {
+const fetchBio = async (email) => {
   try {
-    const res = await fetch(`/api/user/bio?email=${user.email}`);
+    const res = await fetch(`/api/user/bio?email=${email}`);
     const data = await res.json();
 
-    if (data && data.length > 0) {
-      setBio(data.bio);
+    if (data && data.bio) {
+      return data.bio;
     }
+    return null;
   } catch (error) {
     console.log(error, "error fetching bio");
+    return null;
   }
 };
 

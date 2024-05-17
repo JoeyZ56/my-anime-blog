@@ -33,11 +33,11 @@ export default function NavBar() {
           Create Post
         </Link>
       )}
-      {session.status === "authenticated" && (
+      {/* {session.status === "authenticated" && (
         <Link href="/userposts" className={styles.links} id="links">
           My Posts
         </Link>
-      )}
+      )} */}
 
       {session.status === "authenticated" && (
         <Link href="/account" className={styles.links} id="links">

@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import fetchBio from "@/app/api/fetchCalls/fetchBio/fetchBio";
+import Link from "next/link";
 import Image from "next/image";
 import Modal from "@/components/Modal/Modal";
 import UserPosts from "../userposts/page";
@@ -20,12 +21,6 @@ const Account = () => {
       fetchBio();
     }
   });
-
-  const fetchUpdateUserinfo = async () => {
-    try {
-      const res = await fetch(`/api/user/updateUserInfo?email=${user.email}`);
-    } catch (error) {}
-  };
 
   const handleBioModal = () => {
     setIsOpen(!isOpen);
@@ -68,6 +63,9 @@ const Account = () => {
     <div className="account-container">
       {user && <h1>{user.name}&apos;s Account</h1>}
       <div>
+        <Link href="/register">Update User Info</Link>
+      </div>
+      <div>
         <Image
           src="https://tse1.mm.bing.net/th?id=OIP.8nDOOlaYuDpSUAFEG0xKPgHaFy&pid=Api&P=0&h=180"
           alt="user"
@@ -99,7 +97,9 @@ const Account = () => {
         <button onClick={saveBio}>Save</button>
         <button onClick={closeModal}>Close</button>
       </Modal>
-      <UserPosts />
+      <div>
+        <UserPosts />
+      </div>
     </div>
   );
 };

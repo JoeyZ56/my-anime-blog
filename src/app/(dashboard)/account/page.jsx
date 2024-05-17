@@ -1,8 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
+import fetchBio from "@/app/api/fetchCalls/fetchBio/fetchBio";
 import Image from "next/image";
 import Modal from "@/components/Modal/Modal";
+import UserPosts from "../userposts/page";
 
 const Account = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,24 +15,17 @@ const Account = () => {
   const user = session?.user;
   console.log(session);
 
-  const fetchBio = async () => {
-    try {
-      const res = await fetch(`/api/user/bio?email=${user.email}`);
-      const data = await res.json();
-
-      if (data && data.length > 0) {
-        setBio(data.bio);
-      }
-    } catch (error) {
-      console.log(error, "error fetching bio");
-    }
-  };
-
   useEffect(() => {
     if (session) {
       fetchBio();
     }
   });
+
+  const fetchUpdateUserinfo = async () => {
+    try {
+      const res = await fetch(`/api/user/updateUserInfo?email=${user.email}`);
+    } catch (error) {}
+  };
 
   const handleBioModal = () => {
     setIsOpen(!isOpen);
@@ -71,7 +66,7 @@ const Account = () => {
 
   return (
     <div className="account-container">
-      {user && <h1>{user.name}&apos;s account</h1>}
+      {user && <h1>{user.name}&apos;s Account</h1>}
       <div>
         <Image
           src="https://tse1.mm.bing.net/th?id=OIP.8nDOOlaYuDpSUAFEG0xKPgHaFy&pid=Api&P=0&h=180"
@@ -104,6 +99,7 @@ const Account = () => {
         <button onClick={saveBio}>Save</button>
         <button onClick={closeModal}>Close</button>
       </Modal>
+      <UserPosts />
     </div>
   );
 };

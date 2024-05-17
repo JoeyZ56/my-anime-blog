@@ -12,24 +12,16 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    //form elements instead of state
-    const name = e.target[0].value;
-    const email = e.target[1].value;
-    const password = e.target[2].value;
-    const profileImage = e.target[3].value;
+    const formData = new FormData();
+    formData.append("name", e.target[0].value);
+    formData.append("email", e.target[1].value);
+    formData.append("password", e.target[2].value);
+    formData.append("profileImage", e.target[3].files[0]);
 
     try {
       const res = await fetch("/api/auth/register", {
         method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          password,
-          profileImage,
-        }),
+        body: formData,
       });
       res.status === 201 &&
         router.push("/login?success=Account has been created");
@@ -66,11 +58,13 @@ const Register = () => {
           className={styles.input3}
           required
         />
-        {/* <input
-          type="text"
-          placeholder="Profile Image URL"
+        <input
+          type="file"
+          placeholder="Profile Image"
           className={styles.input4}
-        /> */}
+          accept="image/*"
+          required
+        />
         <motion.div
           whileInView={{ opacity: 1 }}
           whileHover={{ scale: 1.1 }}

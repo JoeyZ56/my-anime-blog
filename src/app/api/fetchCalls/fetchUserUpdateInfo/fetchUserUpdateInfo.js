@@ -1,23 +1,23 @@
-const fetchUpdateUserinfo = async () => {
+const fetchUpdateUserinfo = async (email, username, password) => {
   try {
     const res = await fetch(
-      `/api/user/updateUserInfo?email=${user.email}?username=${user.username}?password=${user.password}`,
+      `/api/user/updateUserInfo?email=${email}?username=${username}?password=${password}`,
       {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email: user.email,
-          username: user.username,
-          password: user.password,
+          email: email,
+          username: username,
+          password: password,
         }),
       }
     );
     const data = await res.json();
 
     if (data) {
-      setUpdateInfo(data.updateInfo);
+      return data.updateInfo;
     }
   } catch (error) {
     console.log(error, "error updating user info");

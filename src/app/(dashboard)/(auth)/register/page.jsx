@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import styles from "./register.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
 
 const Register = () => {
   const [error, setError] = useState(false);
@@ -12,16 +11,23 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("name", e.target[0].value);
-    formData.append("email", e.target[1].value);
-    formData.append("password", e.target[2].value);
-    formData.append("profileImage", e.target[3].files[0]);
+    //form elements instead of state
+    const name = e.target[0].value;
+    const email = e.target[1].value;
+    const password = e.target[2].value;
+    const profileImage = e.target[3].value;
 
     try {
       const res = await fetch("/api/auth/register", {
         method: "POST",
-        body: formData,
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+        }),
       });
       res.status === 201 &&
         router.push("/login?success=Account has been created");
@@ -31,13 +37,9 @@ const Register = () => {
   };
 
   return (
-    <div className={styles.container} id="register">
+    <div className={styles.container}>
       <div>
-        <br />
-        <br />
-        <h2 className={styles.title} id="reg-log-title">
-          Register Today!
-        </h2>
+        <h2 className={styles.title}>Register Today!</h2>
       </div>
       <form className={styles.form} onSubmit={handleSubmit}>
         <input
@@ -58,33 +60,12 @@ const Register = () => {
           className={styles.input3}
           required
         />
-        <input
-          type="file"
-          placeholder="Profile Image"
-          className={styles.input4}
-          accept="image/*"
-          required
-        />
-        <motion.div
-          whileInView={{ opacity: 1 }}
-          whileHover={{ scale: 1.1 }}
-          transition={{ duration: 0.5, type: "tween" }}
-        >
-          <button className={styles.button} id="buttons">
-            Register
-          </button>
-        </motion.div>
+        <button className={styles.button}>Register</button>
       </form>
       {error && "An error has accoured Registering!"}
-      <motion.div
-        whileInView={{ opacity: 1 }}
-        whileHover={{ scale: 1.1 }}
-        transition={{ duration: 0.5, type: "tween" }}
-      >
-        <Link className={styles.link} id="reg-log" href="/login">
-          Already a User?
-        </Link>
-      </motion.div>
+      <Link className={styles.link} href="/login">
+        Already a User?
+      </Link>
     </div>
   );
 };

@@ -27,6 +27,7 @@ const Register = () => {
           name,
           email,
           password,
+          profileImage,
         }),
       });
       res.status === 201 &&
@@ -58,6 +59,12 @@ const Register = () => {
           type="password"
           placeholder="Password"
           className={styles.input3}
+          required
+        />
+        <input
+          type="url"
+          placeholder="Profile Image"
+          className={styles.input4}
           required
         />
         <button className={styles.button}>Register</button>

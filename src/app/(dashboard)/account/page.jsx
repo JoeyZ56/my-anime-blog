@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import fetchBio from "@/app/api/fetchCalls/fetchBio/fetchBio";
+import fetchProfileImage from "@/app/api/user/profileImage/profileImage";
 import Link from "next/link";
 import Image from "next/image";
 import Modal from "@/components/Modal/Modal";
@@ -12,6 +13,7 @@ const Account = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [bio, setBio] = useState("");
   const [newBio, setNewBio] = useState("");
+  const [profileImage, setProfileImage] = useState("");
   const { data: session } = useSession();
 
   const user = session?.user;
@@ -23,6 +25,11 @@ const Account = () => {
         const bioData = await fetchBio(user.email);
         if (bioData) {
           setBio(bioData);
+        }
+
+        const image = await fetchProfileImage(user.email);
+        if (image) {
+          setProfileImage(image);
         }
       }
     };
@@ -75,13 +82,15 @@ const Account = () => {
         </Link>
       </div>
       <div>
-        <Image
-          src="https://tse1.mm.bing.net/th?id=OIP.8nDOOlaYuDpSUAFEG0xKPgHaFy&pid=Api&P=0&h=180"
-          alt="user"
-          width={200}
-          height={200}
-          style={{ borderRadius: "50%" }}
-        />
+        {profileImage && (
+          <Image
+            src={profileImage}
+            alt="user"
+            width={200}
+            height={200}
+            style={{ borderRadius: "50%" }}
+          />
+        )}
       </div>
 
       <p>{bio}</p>

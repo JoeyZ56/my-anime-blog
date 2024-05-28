@@ -11,8 +11,8 @@
   "dependencies": {
     "@edgestore/react": "^0.1.6",
     "@edgestore/server": "^0.1.6",
+    "axios": "^1.7.2",
     "bcrypt": "^5.1.1",
-    "cloudinary": "^2.2.0",
     "dotenv": "^16.3.1",
     "embla-carousel-autoplay": "^8.0.0-rc14",
     "embla-carousel-react": "^8.0.0-rc14",
@@ -24,7 +24,6 @@
     "mongoose": "^7.5.3",
     "next": "^14.0.2",
     "next-auth": "^4.23.2",
-    "next-cloudinary": "^6.5.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icon": "^1.0.0",

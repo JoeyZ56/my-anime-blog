@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import fetchBio from "@/app/api/fetchCalls/fetchBio/fetchBio";
-import fetchProfileImage from "@/app/api/user/profileImage/profileImage";
+import fetchProfileImage from "@/app/api/fetchCalls/fetchProfileImage/fetchProfileImage";
 import Link from "next/link";
 import Image from "next/image";
 import Modal from "@/components/Modal/Modal";

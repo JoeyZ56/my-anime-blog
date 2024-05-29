@@ -1,3 +1,7 @@
+import User from "@/models/User";
+import connect from "@/lib/database";
+import { NextResponse } from "next/server";
+
 export const GET = async (request) => {
   const { email } = request.query;
 

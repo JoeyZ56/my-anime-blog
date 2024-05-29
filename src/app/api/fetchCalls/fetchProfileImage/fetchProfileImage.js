@@ -2,6 +2,7 @@ const fetchProfileImage = async (email) => {
   try {
     const res = await fetch(`/api/user/profileImage?email=${email}`);
     const data = await res.json();
+    console.log(data, "data");
 
     if (data && data.profileImage) {
       return data.profileImage;
@@ -12,3 +13,5 @@ const fetchProfileImage = async (email) => {
     return null;
   }
 };
+
+export default fetchProfileImage;

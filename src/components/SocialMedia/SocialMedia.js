@@ -24,11 +24,7 @@ const SocialMedia = () => {
         dragConstraints={{ left: -100, right: 100 }}
         className={styles.socialMedia}
       >
-        <a
-          href="https://discord.com/channels/1151667172297429082/1151667173891256352"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href="https://discord.gg/KXKSbDuS" target="_blank" rel="noreferrer">
           <FaDiscord />
         </a>
       </motion.div>

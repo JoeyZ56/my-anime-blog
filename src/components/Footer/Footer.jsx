@@ -38,7 +38,7 @@ const Footer = () => {
         </motion.div>
       </div>
       <div className={styles.copyRight}>
-        <p>© 2023 My Anime Blog</p>
+        <p>© 2023 OtakuVerse</p>
       </div>
     </div>
   );

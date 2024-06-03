@@ -4,11 +4,13 @@ import styles from "./postId.module.scss";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { notFound } from "next/navigation";
+import fetchProfileImage from "@/app/api/fetchCalls/fetchProfileImage/fetchProfileImage";
 
 import { loader } from "@/assets";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Footer from "@/components/Footer/Footer";
+import { Paprika } from "next/font/google";
 
 async function getData(id) {
   console.log("Fetching data for ID:", id);
@@ -31,6 +33,7 @@ async function getData(id) {
 
 const BlogPost = ({ params }) => {
   const [data, setData] = useState(null);
+  const [profileImage, setProfileImage] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -47,6 +50,19 @@ const BlogPost = ({ params }) => {
     fetchData();
   }, [params.id]);
 
+  useEffect(() => {
+    const loadProfileImage = async () => {
+      if (data) {
+        const image = await fetchProfileImage(data.email);
+        if (image) {
+          setProfileImage(image);
+        }
+      }
+    };
+
+    loadProfileImage();
+  }, [data]);
+
   if (!data) {
     return (
       <div className="image_loader-container">
@@ -58,16 +74,17 @@ const BlogPost = ({ params }) => {
   return (
     <div className={styles.container} id="postsinfo">
       <div className={styles.author}>
-        {/* <Link href={`/blog${params.id}`} className={styles.link}> */}
-        {data.profileImage && (
-          <Image
-            src={data.profileImage}
-            alt="profile image"
-            width={40}
-            height={40}
-            className={styles.profileImage}
-          />
-        )}
+        <div>
+          {profileImage && (
+            <Image
+              src={profileImage}
+              alt="user"
+              width={200}
+              height={200}
+              style={{ borderRadius: "50%" }}
+            />
+          )}
+        </div>
         {/* </Link> */}
         <span className={styles.username} id="usernameID">
           {data.username}

@@ -2,8 +2,6 @@ import { NextResponse } from "next/server";
 import connect from "@/lib/database";
 import Post from "@/models/Post";
 
-//http://localhost:3000/api/posts?id="___"
-
 export const GET = async (request, { params }) => {
   const { id } = params;
 

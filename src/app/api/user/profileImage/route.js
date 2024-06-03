@@ -6,9 +6,12 @@ export const GET = async (request) => {
   try {
     await connect();
 
-    const { email } = request.query;
+    const userEmail = decodeURIComponent(
+      new URL(request.url).searchParams.get("email")
+    );
 
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email: userEmail });
+    console.log(user, "user");
 
     if (user && user.profileImage) {
       return new NextResponse(
@@ -20,6 +23,7 @@ export const GET = async (request) => {
       );
     }
   } catch (error) {
+    console.log(error, "error fetching profile image from route");
     return new NextResponse(
       JSON.stringify({ message: "Error fetching profile image" }),
       {

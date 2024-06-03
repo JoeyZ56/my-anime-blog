@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import connect from "@/lib/database";
 import User from "@/models/User";
 
-const PUT = async (request) => {
+export const PUT = async (request) => {
   await connect();
   try {
     const body = await request.json();

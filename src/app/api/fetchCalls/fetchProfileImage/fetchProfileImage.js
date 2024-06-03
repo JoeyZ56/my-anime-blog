@@ -7,6 +7,7 @@ const fetchProfileImage = async (email) => {
     if (data && data.profileImage) {
       return data.profileImage;
     }
+
     return null;
   } catch (error) {
     console.log(error, "error fetching profile image");

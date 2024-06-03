@@ -3,10 +3,10 @@ import connect from "@/lib/database";
 import { NextResponse } from "next/server";
 
 export const GET = async (request) => {
-  const { email } = request.query;
-
   try {
     await connect();
+
+    const { email } = request.query;
 
     const user = await User.findOne({ email });
 

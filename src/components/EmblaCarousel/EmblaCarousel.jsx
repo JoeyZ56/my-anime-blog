@@ -13,37 +13,37 @@ export const EmblaCarousel = () => {
     <div className={styles.embla} ref={emblaRef}>
       <div className={styles.container}>
         <div className={styles.imgs}>
-          <Image src={emblaPics.soloLeveling} />
+          <Image src={emblaPics.soloLeveling} alt="pics" />
         </div>
         <div className={styles.imgs}>
-          <Image src={emblaPics.jjkn} />
+          <Image src={emblaPics.jjkn} alt="pics" />
         </div>
         <div className={styles.imgs}>
-          <Image src={emblaPics.blackClover} />
+          <Image src={emblaPics.blackClover} alt="pics" />
         </div>
         <div className={styles.imgs}>
-          <Image src={emblaPics.myHeroAcidamia} />
+          <Image src={emblaPics.myHeroAcidamia} alt="pics" />
         </div>
         <div className={styles.imgs}>
-          <Image src={emblaPics.onePiece} />
+          <Image src={emblaPics.onePiece} alt="pics" />
         </div>
         <div className={styles.imgs}>
-          <Image src={emblaPics.konosuba} />
+          <Image src={emblaPics.konosuba} alt="pics" />
         </div>
         <div className={styles.imgs}>
-          <Image src={emblaPics.joblessReincarnation} />
+          <Image src={emblaPics.joblessReincarnation} alt="pics" />
         </div>
         <div className={styles.imgs}>
-          <Image src={emblaPics.kaiju} />
+          <Image src={emblaPics.kaiju} alt="pics" />
         </div>
         <div className={styles.imgs}>
-          <Image src={emblaPics.demonSlayer} />
+          <Image src={emblaPics.demonSlayer} alt="pics" />
         </div>
         <div className={styles.imgs}>
-          <Image src={emblaPics.naruto} />
+          <Image src={emblaPics.naruto} alt="pics" />
         </div>
         <div className={styles.imgs}>
-          <Image src={emblaPics.asassinationClassroom} />
+          <Image src={emblaPics.asassinationClassroom} alt="pics" />
         </div>
       </div>
     </div>

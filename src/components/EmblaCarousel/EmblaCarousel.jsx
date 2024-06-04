@@ -3,6 +3,8 @@ import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import styles from "./EmblaCarousel.module.scss";
 import Autoplay from "embla-carousel-autoplay";
+import emblaPics from "./index";
+import Image from "next/image";
 
 export const EmblaCarousel = () => {
   const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay()]);
@@ -11,43 +13,37 @@ export const EmblaCarousel = () => {
     <div className={styles.embla} ref={emblaRef}>
       <div className={styles.container}>
         <div className={styles.imgs}>
-          <img src="https://images7.alphacoders.com/105/thumb-1920-1054068.png" />
+          <Image src={emblaPics.soloLeveling} />
         </div>
         <div className={styles.imgs}>
-          <img src="https://media.comicbook.com/2019/06/black-clover-1175515.jpeg?auto=webp" />
+          <Image src={emblaPics.jjkn} />
         </div>
         <div className={styles.imgs}>
-          <img src="http://wallpapercave.com/wp/wp2050597.jpg" />
+          <Image src={emblaPics.blackClover} />
         </div>
         <div className={styles.imgs}>
-          <img src="https://wallpapercave.com/wp/wp6374954.jpg" />
+          <Image src={emblaPics.myHeroAcidamia} />
         </div>
         <div className={styles.imgs}>
-          <img src="https://images.alphacoders.com/110/1108683.jpg" />
+          <Image src={emblaPics.onePiece} />
         </div>
         <div className={styles.imgs}>
-          <img src="https://theglobalcoverage.com/wp-content/uploads/2020/02/rising-of-the-shield-hero.jpg" />
+          <Image src={emblaPics.konosuba} />
         </div>
         <div className={styles.imgs}>
-          <img src="https://vignette.wikia.nocookie.net/vsbattles/images/b/b9/Ac.jpg/revision/latest?cb=20160510013432" />
+          <Image src={emblaPics.joblessReincarnation} />
         </div>
         <div className={styles.imgs}>
-          <img src="https://wallpapercave.com/wp/wp12302094.jpg" />
+          <Image src={emblaPics.kaiju} />
         </div>
         <div className={styles.imgs}>
-          <img src="https://www.hdwallpapers.in/download/one_piece_luffy_wearing_red_coat_holding_a_hat_with_red_background_hd_anime-HD.jpg" />
+          <Image src={emblaPics.demonSlayer} />
         </div>
         <div className={styles.imgs}>
-          <img src="http://images4.fanpop.com/image/photos/17300000/Bleach-bleach-anime-17385481-1920-1200.jpg" />
+          <Image src={emblaPics.naruto} />
         </div>
         <div className={styles.imgs}>
-          <img src="http://wallpapercave.com/wp/wc1705169.jpg" />
-        </div>
-        <div className={styles.imgs}>
-          <img src="http://wallpapercave.com/wp/4t3KDvI.jpg" />
-        </div>
-        <div className={styles.imgs}>
-          <img src="https://2.bp.blogspot.com/-3GOc8Bwp6Hk/XDonTbcemDI/AAAAAAAAAYE/ok3rezNKC6AjEC-woI0jZCidw4r5NAAOQCKgBGAs/w5120/legendary-super-saiyan-broly-dragon-ball-super-broly-22-8k.jpg" />
+          <Image src={emblaPics.asassinationClassroom} />
         </div>
       </div>
     </div>

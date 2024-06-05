@@ -10,7 +10,6 @@ import { loader } from "@/assets";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Footer from "@/components/Footer/Footer";
-import { Paprika } from "next/font/google";
 
 async function getData(id) {
   console.log("Fetching data for ID:", id);
@@ -41,6 +40,13 @@ const BlogPost = ({ params }) => {
         console.log("Fetching data for ID:", params.id);
         const postData = await getData(params.id);
         console.log("Received data:", postData);
+
+        if (postData && postData.author) {
+          const image = await fetchProfileImage(postData.email);
+          if (image) {
+            setProfileImage(image);
+          }
+        }
         setData(postData);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -50,18 +56,7 @@ const BlogPost = ({ params }) => {
     fetchData();
   }, [params.id]);
 
-  useEffect(() => {
-    const loadProfileImage = async () => {
-      if (data) {
-        const image = await fetchProfileImage(data.email);
-        if (image) {
-          setProfileImage(image);
-        }
-      }
-    };
-
-    loadProfileImage();
-  }, [data]);
+  console.log("Profile image:", profileImage);
 
   if (!data) {
     return (

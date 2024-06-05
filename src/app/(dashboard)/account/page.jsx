@@ -8,6 +8,7 @@ import Image from "next/image";
 import Modal from "@/components/Modal/Modal";
 import UserPosts from "../userposts/page";
 import styles from "./account.module.scss";
+import EditUserInfoModal from "../../../components/EditUserInfoModal/EditUserInfoModal";
 
 const Account = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +21,7 @@ const Account = () => {
   console.log(session);
 
   useEffect(() => {
-    const loadBio = async () => {
+    const profileInfo = async () => {
       if (session) {
         const bioData = await fetchBio(user.email);
         if (bioData) {
@@ -33,7 +34,7 @@ const Account = () => {
         }
       }
     };
-    loadBio();
+    profileInfo();
   }, [user]);
 
   const handleBioModal = () => {
@@ -76,11 +77,7 @@ const Account = () => {
   return (
     <div className={styles.container}>
       {user && <h1>{user.name}&apos;s Account</h1>}
-      <div className={styles.updateLink}>
-        <Link href="/register" className={styles.links}>
-          Update User Info
-        </Link>
-      </div>
+      <div className={styles.updateLink}></div>
       <div>
         {profileImage && (
           <Image
@@ -115,6 +112,7 @@ const Account = () => {
         <button onClick={saveBio}>Save</button>
         <button onClick={closeModal}>Close</button>
       </Modal>
+      <EditUserInfoModal />
       <div>
         <UserPosts />
       </div>

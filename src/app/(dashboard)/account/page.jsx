@@ -92,26 +92,38 @@ const Account = () => {
 
       <p>{bio}</p>
       <button onClick={handleBioModal}>Edit Bio</button>
-      <Modal isOpen={isOpen} onClose={closeModal}>
-        <h2>Edit Bio</h2>
+      <div className={styles.modalContainer}>
+        <Modal
+          isOpen={isOpen}
+          onClose={closeModal}
+          className={styles.customModal}
+        >
+          <h2>Edit Bio</h2>
 
-        <textarea
-          value={newBio}
-          input="text"
-          onChange={handleBioChange}
-          style={{
-            width: "100%",
-            height: "100px",
-            padding: "10px",
-            margin: "10px 0",
-            boxSizing: "border-box",
-            borderRadius: "5px",
-            border: "1px solid #ccc",
-          }}
-        />
-        <button onClick={saveBio}>Save</button>
-        <button onClick={closeModal}>Close</button>
-      </Modal>
+          <textarea
+            value={newBio}
+            input="text"
+            onChange={handleBioChange}
+            style={{
+              width: "100%",
+              height: "100px",
+              padding: "10px",
+              margin: "10px 0",
+              boxSizing: "border-box",
+              borderRadius: "5px",
+              border: "1px solid #ccc",
+            }}
+          />
+          <div className={styles.btnContainer}>
+            <button onClick={saveBio} className={styles.btns}>
+              Save
+            </button>
+            <button onClick={closeModal} className={styles.btns}>
+              Close
+            </button>
+          </div>
+        </Modal>
+      </div>
       <EditUserInfoModal />
       <div>
         <UserPosts />

@@ -86,12 +86,17 @@ const Account = () => {
             width={200}
             height={200}
             style={{ borderRadius: "50%" }}
+            id="profile-image"
           />
         )}
       </div>
 
       <p>{bio}</p>
-      <button onClick={handleBioModal} className={styles.btns}>
+      <button
+        onClick={handleBioModal}
+        className={styles.btns}
+        id="account-btns"
+      >
         Edit Bio
       </button>
       <div className={styles.modalContainer}>

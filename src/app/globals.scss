@@ -168,6 +168,10 @@ a {
   #account-username {
     color: #111;
   }
+
+  #profile-image {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
 }
 
 .dark {
@@ -216,6 +220,17 @@ a {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+
+  #account-btns {
+    background-color: #fff;
+    color: #111;
+
+    &:hover {
+      background-color: rgb(196, 15, 6);
+      color: #fff;
+      transition: ease-in-out 0.3s;
+    }
   }
 }
 

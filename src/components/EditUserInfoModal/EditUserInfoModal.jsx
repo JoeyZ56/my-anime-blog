@@ -14,7 +14,9 @@ const EditUserInfoModal = () => {
   };
   return (
     <>
-      <button onClick={handleModal}>Edit User Info</button>
+      <button onClick={handleModal} id="account-btns">
+        Edit User Info
+      </button>
       <Modal isOpen={isOpen} onClose={handleCloseModal}>
         <div className={styles.container}>
           <h2>Edit Info</h2>

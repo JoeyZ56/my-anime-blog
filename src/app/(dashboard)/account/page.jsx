@@ -76,7 +76,7 @@ const Account = () => {
 
   return (
     <div className={styles.container}>
-      {user && <h1>{user.name}&apos;s Account</h1>}
+      {user && <h1 id="account-username">{user.name}&apos;s Account</h1>}
       <div className={styles.updateLink}></div>
       <div>
         {profileImage && (
@@ -91,7 +91,9 @@ const Account = () => {
       </div>
 
       <p>{bio}</p>
-      <button onClick={handleBioModal}>Edit Bio</button>
+      <button onClick={handleBioModal} className={styles.btns}>
+        Edit Bio
+      </button>
       <div className={styles.modalContainer}>
         <Modal
           isOpen={isOpen}

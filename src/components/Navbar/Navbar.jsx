@@ -19,7 +19,7 @@ export default function NavBar() {
         transition={{ duration: 0.5, type: "tween" }}
       >
         <h1 className={styles.logo} id="logo">
-          Anime Blog
+          OtakuVerse
         </h1>
       </motion.div>
       <SocialMedia />

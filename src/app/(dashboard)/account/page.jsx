@@ -91,7 +91,7 @@ const Account = () => {
         )}
       </div>
 
-      <p>{bio}</p>
+      <p id="account-bio">{bio}</p>
       <button
         onClick={handleBioModal}
         className={styles.btns}

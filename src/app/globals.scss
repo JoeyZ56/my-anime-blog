@@ -164,6 +164,7 @@ a {
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+  //Account
 
   #account-username {
     color: #111;
@@ -171,6 +172,10 @@ a {
 
   #profile-image {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+
+  #account-bio {
+    color: #111;
   }
 }
 

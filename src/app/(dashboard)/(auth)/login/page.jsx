@@ -5,6 +5,7 @@ import { signIn, useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import ErrorBoundary from "@/components/ErrorBoundary/ErrorBoundary";
 
 const Login = ({ url }) => {
   const session = useSession();
@@ -81,4 +82,19 @@ const Login = ({ url }) => {
   );
 };
 
-export default Login;
+function DetailsErrorBoundary(props) {
+  return (
+    <ErrorBoundary
+      errorComponent={
+        <h2>
+          Server error accurd with attempting to Login{" "}
+          <Link to="/">Click here</Link> to go back to the home page.
+        </h2>
+      }
+    >
+      <Login {...props} />
+    </ErrorBoundary>
+  );
+}
+
+export default DetailsErrorBoundary;

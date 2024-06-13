@@ -10,6 +10,7 @@ import { loader } from "@/assets";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Footer from "@/components/Footer/Footer";
+import ErrorBoundary from "@/components/ErrorBoundary/ErrorBoundary";
 
 async function getData(id) {
   console.log("Fetching data for ID:", id);
@@ -121,4 +122,19 @@ const BlogPost = ({ params }) => {
   );
 };
 
-export default BlogPost;
+function DetailsErrorBoundary(props) {
+  return (
+    <ErrorBoundary
+      errorComponent={
+        <h2>
+          Server error accurd with attempting to Login{" "}
+          <Link to="/">Click here</Link> to go back to the home page.
+        </h2>
+      }
+    >
+      <BlogPost {...props} />
+    </ErrorBoundary>
+  );
+}
+
+export default DetailsErrorBoundary;

@@ -25,37 +25,39 @@ export default function NavBar() {
       <SocialMedia />
       <DarkModeToggle />
 
-      <Link href="/" className={styles.links} id="links">
-        Dashboard
-      </Link>
-      {session.status === "authenticated" && (
-        <Link href="/createpost" className={styles.links} id="links">
-          Create Post
+      <div className={styles.linksContainer}>
+        <Link href="/" className={styles.links} id="links">
+          Dashboard
         </Link>
-      )}
-      {/* {session.status === "authenticated" && (
+        {session.status === "authenticated" && (
+          <Link href="/createpost" className={styles.links} id="links">
+            Create Post
+          </Link>
+        )}
+        {/* {session.status === "authenticated" && (
         <Link href="/userposts" className={styles.links} id="links">
           My Posts
         </Link>
       )} */}
 
-      {session.status === "authenticated" && (
-        <Link href="/account" className={styles.links} id="links">
-          Account{" "}
-        </Link>
-      )}
+        {session.status === "authenticated" && (
+          <Link href="/account" className={styles.links} id="links">
+            Account{" "}
+          </Link>
+        )}
 
-      {session.status != "authenticated" && (
-        <Link href="/register" className={styles.links} id="links">
-          Register
-        </Link>
-      )}
+        {session.status != "authenticated" && (
+          <Link href="/register" className={styles.links} id="links">
+            Register
+          </Link>
+        )}
 
-      {session.status != "authenticated" && (
-        <Link href="/login" className={styles.links} id="links">
-          Login
-        </Link>
-      )}
+        {session.status != "authenticated" && (
+          <Link href="/login" className={styles.links} id="links">
+            Login
+          </Link>
+        )}
+      </div>
 
       <Logout />
     </div>

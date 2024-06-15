@@ -4,6 +4,11 @@
   align-items: center;
   width: 100vw;
 
+  .linksContainer {
+    display: flex;
+    gap: 20px;
+  }
+
   .links {
     color: white;
     text-decoration: none;
@@ -22,6 +27,14 @@
     align-items: center;
 
     gap: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .linksContainer {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
   }
 }
 

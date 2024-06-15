@@ -127,8 +127,8 @@ function DetailsErrorBoundary(props) {
     <ErrorBoundary
       errorComponent={
         <h2>
-          Server error accurd with attempting to Login{" "}
-          <Link to="/">Click here</Link> to go back to the home page.
+          Error accurd attempting to view post <Link to="/">Click here</Link> to
+          go back to the home page.
         </h2>
       }
     >
